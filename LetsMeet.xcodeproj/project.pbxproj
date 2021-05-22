@@ -13,6 +13,8 @@
 		568C482026426A5C00BF1297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568C481E26426A5C00BF1297 /* Main.storyboard */; };
 		568C482226426A6200BF1297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 568C482126426A6200BF1297 /* Assets.xcassets */; };
 		568C482526426A6200BF1297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568C482326426A6200BF1297 /* LaunchScreen.storyboard */; };
+		568C482D26426AE100BF1297 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 568C482C26426AE100BF1297 /* GoogleService-Info.plist */; };
+		6AB2F49434A0136A22A2F89B /* Pods_LetsMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420B869701C21D07278B037 /* Pods_LetsMeet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		568C482126426A6200BF1297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		568C482426426A6200BF1297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		568C482626426A6200BF1297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		568C482C26426AE100BF1297 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C34438888169DA332A1ADFA3 /* Pods-LetsMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsMeet.release.xcconfig"; path = "Target Support Files/Pods-LetsMeet/Pods-LetsMeet.release.xcconfig"; sourceTree = "<group>"; };
+		CD92AFD624F8E57A5A8EFC5C /* Pods-LetsMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsMeet.debug.xcconfig"; path = "Target Support Files/Pods-LetsMeet/Pods-LetsMeet.debug.xcconfig"; sourceTree = "<group>"; };
+		D420B869701C21D07278B037 /* Pods_LetsMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB2F49434A0136A22A2F89B /* Pods_LetsMeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				568C481726426A5C00BF1297 /* LetsMeet */,
 				568C481626426A5C00BF1297 /* Products */,
+				A9BFB9EFF0A9CB73C2FD9DD7 /* Pods */,
+				CE3944237DF290ED40334E2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,27 @@
 				568C482126426A6200BF1297 /* Assets.xcassets */,
 				568C482326426A6200BF1297 /* LaunchScreen.storyboard */,
 				568C482626426A6200BF1297 /* Info.plist */,
+				568C482C26426AE100BF1297 /* GoogleService-Info.plist */,
 			);
 			path = LetsMeet;
+			sourceTree = "<group>";
+		};
+		A9BFB9EFF0A9CB73C2FD9DD7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD92AFD624F8E57A5A8EFC5C /* Pods-LetsMeet.debug.xcconfig */,
+				C34438888169DA332A1ADFA3 /* Pods-LetsMeet.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE3944237DF290ED40334E2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D420B869701C21D07278B037 /* Pods_LetsMeet.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 568C482926426A6200BF1297 /* Build configuration list for PBXNativeTarget "LetsMeet" */;
 			buildPhases = (
+				227DC34FFDDF2CD04C588A4D /* [CP] Check Pods Manifest.lock */,
 				568C481126426A5C00BF1297 /* Sources */,
 				568C481226426A5C00BF1297 /* Frameworks */,
 				568C481326426A5C00BF1297 /* Resources */,
+				1C50D9B7C0A5FC7CE2ADF20D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C482526426A6200BF1297 /* LaunchScreen.storyboard in Resources */,
+				568C482D26426AE100BF1297 /* GoogleService-Info.plist in Resources */,
 				568C482226426A6200BF1297 /* Assets.xcassets in Resources */,
 				568C482026426A5C00BF1297 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C50D9B7C0A5FC7CE2ADF20D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LetsMeet/Pods-LetsMeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LetsMeet/Pods-LetsMeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LetsMeet/Pods-LetsMeet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		227DC34FFDDF2CD04C588A4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LetsMeet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		568C481126426A5C00BF1297 /* Sources */ = {
@@ -283,6 +356,7 @@
 		};
 		568C482A26426A6200BF1297 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD92AFD624F8E57A5A8EFC5C /* Pods-LetsMeet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -296,12 +370,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = John.LetsMeet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		568C482B26426A6200BF1297 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C34438888169DA332A1ADFA3 /* Pods-LetsMeet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = John.LetsMeet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
