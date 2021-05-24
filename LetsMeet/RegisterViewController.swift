@@ -21,6 +21,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var genderSegmentOutlet: UISegmentedControl!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    //MARK: - Vars
+    var isMale = true
+    
+    
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,7 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: Any) {
         
         if isTextDataImputed() {
-            //register the user
-            
+            registerUser()
         } else {
             ProgressHUD.showError("All fields are required!")
         }
@@ -48,6 +51,19 @@ class RegisterViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func genderSegmentValueChanged(_ sender: UISegmentedControl) {
+        
+//        if sender.selectedSegmentIndex == 0 {
+//            isMale = true
+//        } else {
+//            isMale = false
+//        }
+        isMale = sender.selectedSegmentIndex == 0 ? true : false
+        print(isMale)
+        
+    }
+    
     
     //MARK: - Setup
     
@@ -75,5 +91,10 @@ class RegisterViewController: UIViewController {
         // 가입화면 중 모든 TextField가 채워져있다면 에러가 발생하지 않음
         // && 하나라도 만족시키지 않으면 False의 else - "All fields are required!" 출력
         return  usernameTextField.text != "" && emailTextField.text != "" && cityTextField.text != "" && dateOfBirthTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != ""
+    }
+    
+    //MARK: - RegisterUser
+    private func registerUser() {
+        
     }
 }

@@ -330,6 +330,9 @@
                                     <segment title="Male"/>
                                     <segment title="Female"/>
                                 </segments>
+                                <connections>
+                                    <action selector="genderSegmentValueChanged:" destination="I6J-o1-B6L" eventType="valueChanged" id="6t3-Os-A4R"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fR-vM-jTe">
                                 <rect key="frame" x="37" y="464" width="316" height="55"/>
