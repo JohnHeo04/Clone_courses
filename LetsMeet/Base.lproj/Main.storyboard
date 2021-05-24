@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,6 +79,9 @@
                                 <state key="normal" image="signin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aG7-md-UN9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-df-c0k">
                                 <rect key="frame" x="20" y="327" width="161" height="30"/>
@@ -89,6 +92,9 @@
                                 <state key="normal" title="Forget Password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotPasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gSc-h0-7Wn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Don't have any account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVS-fD-kyT">
                                 <rect key="frame" x="20" y="779" width="219" height="21"/>
@@ -167,15 +173,19 @@
                             <constraint firstItem="eeU-Fd-egc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zoa-Sb-8Qh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="P0W-CC-EqE" id="yQy-6G-ViU"/>
+                        <outlet property="passwordTextField" destination="GEg-ah-Fmv" id="DRq-gi-oNW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44.615384615384613" y="88.151658767772503"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="pCi-1i-2p5">
             <objects>
-                <viewController id="I6J-o1-B6L" sceneMemberID="viewController">
+                <viewController id="I6J-o1-B6L" customClass="RegisterViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="meA-W6-fV1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,6 +209,9 @@
                                     <constraint firstAttribute="height" constant="30" id="uHR-6D-ItS"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="I6J-o1-B6L" eventType="touchUpInside" id="5K2-ci-tMP"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSh-Ha-MIT">
                                 <rect key="frame" x="16" y="189" width="358" height="2"/>
@@ -238,6 +251,9 @@
                                     <constraint firstAttribute="height" constant="30" id="tAm-Le-0oM"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="I6J-o1-B6L" eventType="touchUpInside" id="ehe-c7-qHU"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G0d-qh-AUB">
                                 <rect key="frame" x="16" y="98" width="358" height="34"/>
@@ -323,6 +339,9 @@
                                 <state key="normal" image="Button_sign in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="I6J-o1-B6L" eventType="touchUpInside" id="mY8-hQ-U1Z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UQh-wn-Q1K"/>
@@ -389,6 +408,15 @@
                             <constraint firstItem="rXb-er-bMe" firstAttribute="leading" secondItem="meA-W6-fV1" secondAttribute="leadingMargin" id="zEo-EV-gAz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityTextField" destination="SQY-XU-UUc" id="xu4-YD-KVd"/>
+                        <outlet property="confirmPasswordTextField" destination="MM5-WS-MKf" id="D5E-lA-zOS"/>
+                        <outlet property="dateOfBirthTextField" destination="XVy-bE-VsR" id="xA8-BZ-3g0"/>
+                        <outlet property="emailTextField" destination="DQo-wB-iEo" id="Qqu-Ct-1xZ"/>
+                        <outlet property="genderSegmentOutlet" destination="qwA-gD-wmH" id="f10-89-cqm"/>
+                        <outlet property="passwordTextField" destination="gbI-qe-r8u" id="QXr-WC-tLG"/>
+                        <outlet property="usernameTextField" destination="G0d-qh-AUB" id="zqW-A1-EA7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVd-TQ-Oqa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
