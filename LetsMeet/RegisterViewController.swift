@@ -54,12 +54,9 @@ class RegisterViewController: UIViewController {
     
     @IBAction func genderSegmentValueChanged(_ sender: UISegmentedControl) {
         
-//        if sender.selectedSegmentIndex == 0 {
-//            isMale = true
-//        } else {
-//            isMale = false
-//        }
-        isMale = sender.selectedSegmentIndex == 0 ? true : false
+        // 사실 위에서 isMale 변수를 true로 선언해줬기 때문에, 뒤에 ? true : false를 붙일 필요없음
+        isMale = sender.selectedSegmentIndex == 0
+            //? true : false
         print(isMale)
         
     }
@@ -94,7 +91,14 @@ class RegisterViewController: UIViewController {
     }
     
     //MARK: - RegisterUser
+    // 아래의 registerUser 함수는 위의 isTextDataImputed 함수 true가 체크 되고나서 실행이 됨
     private func registerUser() {
         
+        FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, userName: usernameTextField.text!, city: cityTextField.text!, isMale: isMale, dateOfBirth: Date(), completion: {
+            error in
+            
+                print("callback")
+                               
+        })
     }
 }

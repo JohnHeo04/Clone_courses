@@ -15,6 +15,7 @@
 		568C482D26426AE100BF1297 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 568C482C26426AE100BF1297 /* GoogleService-Info.plist */; };
 		56F23206265B61F200DB913B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F23205265B61F200DB913B /* WelcomeViewController.swift */; };
 		56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F23207265B621F00DB913B /* RegisterViewController.swift */; };
+		56F2320A265B908500DB913B /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F23209265B908400DB913B /* FUser.swift */; };
 		6AB2F49434A0136A22A2F89B /* Pods_LetsMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420B869701C21D07278B037 /* Pods_LetsMeet.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		568C482C26426AE100BF1297 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		56F23205265B61F200DB913B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		56F23207265B621F00DB913B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		56F23209265B908400DB913B /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		C34438888169DA332A1ADFA3 /* Pods-LetsMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsMeet.release.xcconfig"; path = "Target Support Files/Pods-LetsMeet/Pods-LetsMeet.release.xcconfig"; sourceTree = "<group>"; };
 		CD92AFD624F8E57A5A8EFC5C /* Pods-LetsMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsMeet.debug.xcconfig"; path = "Target Support Files/Pods-LetsMeet/Pods-LetsMeet.debug.xcconfig"; sourceTree = "<group>"; };
 		D420B869701C21D07278B037 /* Pods_LetsMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 				568C481A26426A5C00BF1297 /* SceneDelegate.swift */,
 				56F23205265B61F200DB913B /* WelcomeViewController.swift */,
 				56F23207265B621F00DB913B /* RegisterViewController.swift */,
+				56F23209265B908400DB913B /* FUser.swift */,
 				568C481E26426A5C00BF1297 /* Main.storyboard */,
 				568C482126426A6200BF1297 /* Assets.xcassets */,
 				568C482326426A6200BF1297 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F2320A265B908500DB913B /* FUser.swift in Sources */,
 				56F23206265B61F200DB913B /* WelcomeViewController.swift in Sources */,
 				568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */,
 				568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */,
