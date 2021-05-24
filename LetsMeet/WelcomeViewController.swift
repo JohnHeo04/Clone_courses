@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class WelcomeViewController: UIViewController {
     
@@ -31,9 +32,31 @@ class WelcomeViewController: UIViewController {
     //MARK: - IBACtions
     
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
+        // 'Forget Password?'를 눌렀을 때
+        // 만약 emailTextField가 비워져있지 않다면 "" 비워져있다면 API ProgessHUD중 Error "Please ~"를 출력
+        if emailTextField.text != "" {
+            // reset password
+            
+            
+        } else {
+            // show error
+            ProgressHUD.showError("Please insert your email addreess")
+        }
+        
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        // 'Login' Button을 눌렀을 때 
+        // 만약 emailTextField와 passwordTextField 둘 다 비워져있지 않다면 "" 출력
+        // 둘 다 비워져있다면 "All ~"를 출력함
+        if emailTextField.text != "" && passwordTextField.text != ""{
+            //login
+            
+            
+        } else {
+            ProgressHUD.showError("All fields are required!")
+        }
+        
     }
     
     //MARK: - Setup
