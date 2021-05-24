@@ -10,7 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     //MARK: - IBOutlets
-
+    // 스토리보드에서 그린 '회원 가입'화면 중 TextField를 아래의 코드로 연결을 해줌
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var genderSegmentOutlet: UISegmentedControl!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
