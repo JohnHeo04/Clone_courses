@@ -42,7 +42,15 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: Any) {
         
         if isTextDataImputed() {
-            registerUser()
+            // 두개의 비밀번호 입력하는 곳이 일치 하는지 확인하는 메소드
+            // 만약 1,2차 비밀번호가 일치하면 가입이 되고
+            // 그 밖에 1차, 2차 비밀번호가 일치하지 않으면 else로 넘어가 "Passwords don't match"로 넘어가게 된다.
+            if passwordTextField.text! == confirmPasswordTextField.text! {
+                registerUser()
+            } else{
+                ProgressHUD.showError("Passwords don't match")
+            }
+            
         } else {
             ProgressHUD.showError("All fields are required!")
         }
@@ -94,10 +102,18 @@ class RegisterViewController: UIViewController {
     // 아래의 registerUser 함수는 위의 isTextDataImputed 함수 true가 체크 되고나서 실행이 됨
     private func registerUser() {
         
+        ProgressHUD.show()
+        
         FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, userName: usernameTextField.text!, city: cityTextField.text!, isMale: isMale, dateOfBirth: Date(), completion: {
             error in
             
-                print("callback")
+            ProgressHUD.dismiss()
+            // 만약에 error가 나지 않는다면 email로 인증확인서를 보냄
+            if error == nil {
+                ProgressHUD.showSuccess("Verification email sent!")
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
                                
         })
     }
