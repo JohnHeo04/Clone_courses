@@ -107,7 +107,6 @@ class RegisterViewController: UIViewController {
         FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, userName: usernameTextField.text!, city: cityTextField.text!, isMale: isMale, dateOfBirth: Date(), completion: {
             error in
             
-            ProgressHUD.dismiss()
             // 만약에 error가 나지 않는다면 email로 인증확인서를 보냄
             if error == nil {
                 ProgressHUD.showSuccess("Verification email sent!")
