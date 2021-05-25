@@ -43,6 +43,59 @@ class FUser: Equatable {
     // 사용자에게 Push 알림을 보내는 변수
     var pushId: String?
     
+    // 'NS'는 obj-c로부터 온거임
+    // conrol + I = 자동 들여쓰기
+    // shift + option = 드래그 하여 let,var를 self로 한번에 고치기 가능
+    var userDictionary: NSDictionary {
+        
+        return NSDictionary(objects: [
+                                    self.objectId,
+                                    self.email,
+                                    self.username,
+                                    self.dateOfBirth,
+                                    self.isMale,
+                                    self.profession,
+                                    self.jobTitle,
+                                    self.about,
+                                    self.city,
+                                    self.country,
+                                    self.height,
+                                    self.lookingFor,
+                                    self.avatarLink,
+                                    
+                                    self.likedIdArray ?? [],
+                                    self.imageLinks ?? [],
+                                    self.registeredDate,
+                                    self.pushId
+            
+            ],
+            // objects와 forKeys에서 순서는 굉장히 중요함
+            // objects의 순서와 forKeys 순서는 같은 순서로 움직임
+            // ex) objects의 첫 번째는 forKeys의 첫 번째와 매칭이 됨 
+            forKeys: [kOBJECTID as NSCopying,
+                    kEMAIL as NSCopying,
+                    kUSERNAME as NSCopying,
+                    kDATEOFBIRTH as NSCopying,
+                    kISMALE as NSCopying,
+                    kPROFESSION as NSCopying,
+                    kJOBTITLE as NSCopying,
+                    kABOUT as NSCopying,
+                    kCITY as NSCopying,
+                    kCOUNTRY as NSCopying,
+                    kHEIGHT as NSCopying,
+                    kLOOKINGFOR as NSCopying,
+                    kAVATARLINK as NSCopying,
+                    kLIKEDIDARRAY as NSCopying,
+                    kIMAGELINKS as NSCopying,
+                    kREGISTEREDDATE as NSCopying,
+                    kPUSHID as NSCopying
+
+                
+                
+                ])
+        
+    }
+    
     //MARK: - Inits
     // 아래는 위의 변수들을 초기 선언해줌
     init(_objectId: String, _email: String, _username: String, _city: String, _dateOfBirth: Date, _isMale: Bool, _avatarLink: String = "") {
@@ -83,13 +136,17 @@ class FUser: Equatable {
                 if authData?.user != nil {
                     // 아래의 let 변수는 위의 class에 제공함
                     let user = FUser(_objectId: authData!.user.uid, _email: email, _username: userName, _city: city, _dateOfBirth: dateOfBirth, _isMale: isMale)
+                    // 위의 user를 저장하기 위해 아래에 ???가를 만들것임
                     
+                    user.saveUserLocally()
                 }
-                
             }
-            
         }
+    }
+    
+    func saveUserLocally() {
         
     }
+    
 
 }

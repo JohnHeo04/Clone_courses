@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		566F9451265CD72400258A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F9450265CD72400258A72 /* Constants.swift */; };
 		568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481826426A5C00BF1297 /* AppDelegate.swift */; };
 		568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481A26426A5C00BF1297 /* SceneDelegate.swift */; };
 		568C482026426A5C00BF1297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568C481E26426A5C00BF1297 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		566F9450265CD72400258A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		568C481526426A5C00BF1297 /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C481826426A5C00BF1297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		568C481A26426A5C00BF1297 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				56F23205265B61F200DB913B /* WelcomeViewController.swift */,
 				56F23207265B621F00DB913B /* RegisterViewController.swift */,
 				56F23209265B908400DB913B /* FUser.swift */,
+				566F9450265CD72400258A72 /* Constants.swift */,
 				568C481E26426A5C00BF1297 /* Main.storyboard */,
 				568C482126426A6200BF1297 /* Assets.xcassets */,
 				568C482326426A6200BF1297 /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 				568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */,
 				568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */,
 				56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */,
+				566F9451265CD72400258A72 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
