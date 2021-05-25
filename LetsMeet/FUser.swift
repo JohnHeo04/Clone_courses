@@ -23,7 +23,22 @@ class FUser: Equatable {
     
     class func registerUserWith(email: String, password: String, userName: String, city: String, isMale: Bool, dateOfBirth: Date, completion: @escaping (_ error: Error?) -> Void) {
         
-        print("register user")
+        // 아래의 정보는 Firebase에 제공하는 정보
+        Auth.auth().createUser(withEmail: email, password: password) { authData, error in
+            
+            
+            completion(error)
+            
+            if error == nil {
+                // 오류가 없다면 오류가 없다, nil을 보내게 된다.
+                authData!.user.sendEmailVerification { (error) in
+                    print("auth email verificaiton sent", error?.localizedDescription)
+                }
+                
+                //create user in database
+            }
+            
+        }
         
     }
 
