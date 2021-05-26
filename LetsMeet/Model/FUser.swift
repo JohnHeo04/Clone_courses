@@ -117,6 +117,40 @@ class FUser: Equatable {
         
     }
     
+    
+    init(_dictionary: NSDictionary) {
+        // objectId가 String형태 일지도 모른다. 다만 경우에 따라서 String이 아닐 수 있으므로 "" 텅 빈 String 형태로 둔다.
+        // 고로 App은 충돌하지 않음
+        // 우리의 compiler가 우리의 dictionary에 접근해서 objectId를 얻고 거기에 int가 있을지도 모른다.
+        // 만약 우리가 as!로 강제 string타입을 가졌다면 App이 충돌했을지도 모름
+        objectId = _dictionary[kOBJECTID] as? String ?? ""
+        email = _dictionary[kEMAIL] as? String ?? ""
+        username = _dictionary[kUSERNAME] as? String ?? ""
+        isMale = _dictionary[kISMALE] as? Bool ?? true
+        profession = _dictionary[kPROFESSION] as? String ?? ""
+        jobTitle = _dictionary[kJOBTITLE] as? String ?? ""
+        about = _dictionary[kABOUT] as? String ?? ""
+        city = _dictionary[kCITY] as? String ?? ""
+        country = _dictionary[kCOUNTRY] as? String ?? ""
+        height = _dictionary[kHEIGHT] as? Double ?? 0.0
+        lookingFor = _dictionary[kLOOKINGFOR] as? String ?? ""
+        avatarLink = _dictionary[kAVATARLINK] as? String ?? ""
+        likedIdArray = _dictionary[kLIKEDIDARRAY] as? [String]
+        imageLinks = _dictionary[kIMAGELINKS] as? [String]
+        pushId = _dictionary[kPUSHID] as? String ?? ""
+        
+        // 모든 Data를 안전하게 지키는 법
+        if let date = _dictionary[kDATEOFBIRTH] as? Timestamp {
+            // 아래의 dataValue()함수는 Firebase로부터 가져옴
+            // 아래의 object는 timestamp로부터 date를 가져옴
+            dateOfBirth = date.dateValue()
+        } else {
+            // 만약 사용자가 만든 date Of Birth가 오류를 일으키거나 뭔가를 놓쳤다면 현재의 Date를 생성한다.
+            // 아래의 ?? 를 optional이라 부름
+            dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
+        }
+    }
+    
     //MARK: - Login
     class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVerivied: Bool) -> Void) {
         

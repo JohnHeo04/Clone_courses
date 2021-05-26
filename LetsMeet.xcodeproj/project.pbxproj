@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		564AE5A3265E398D00748E3D /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AE5A2265E398D00748E3D /* FCollectionReference.swift */; };
+		564AE5A5265E678A00748E3D /* FirebaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AE5A4265E678A00748E3D /* FirebaseListener.swift */; };
 		566F9451265CD72400258A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F9450265CD72400258A72 /* Constants.swift */; };
 		568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481826426A5C00BF1297 /* AppDelegate.swift */; };
 		568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481A26426A5C00BF1297 /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		564AE5A2265E398D00748E3D /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
+		564AE5A4265E678A00748E3D /* FirebaseListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseListener.swift; sourceTree = "<group>"; };
 		566F9450265CD72400258A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../New Group/Constants.swift"; sourceTree = "<group>"; };
 		568C481526426A5C00BF1297 /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C481826426A5C00BF1297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				566F9450265CD72400258A72 /* Constants.swift */,
 				564AE5A2265E398D00748E3D /* FCollectionReference.swift */,
+				564AE5A4265E678A00748E3D /* FirebaseListener.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564AE5A5265E678A00748E3D /* FirebaseListener.swift in Sources */,
 				56F2320A265B908500DB913B /* FUser.swift in Sources */,
 				56F23206265B61F200DB913B /* WelcomeViewController.swift in Sources */,
 				568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */,
