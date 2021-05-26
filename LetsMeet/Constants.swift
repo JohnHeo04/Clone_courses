@@ -7,6 +7,8 @@
 
 import Foundation
 
+public let userDefaults = UserDefaults.standard
+
 //FUser
 // 사용자의 큰 Dictionary
 public let kOBJECTID = "objectId"

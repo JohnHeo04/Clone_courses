@@ -110,6 +110,7 @@ class RegisterViewController: UIViewController {
             // 만약에 error가 나지 않는다면 email로 인증확인서를 보냄
             if error == nil {
                 ProgressHUD.showSuccess("Verification email sent!")
+                self.dismiss(animated: true, completion: nil)
             } else {
                 ProgressHUD.showError(error!.localizedDescription)
             }

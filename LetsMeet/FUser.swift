@@ -66,7 +66,7 @@ class FUser: Equatable {
                                     self.likedIdArray ?? [],
                                     self.imageLinks ?? [],
                                     self.registeredDate,
-                                    self.pushId
+                                    self.pushId ?? ""
             
             ],
             // objects와 forKeys에서 순서는 굉장히 중요함
@@ -89,7 +89,6 @@ class FUser: Equatable {
                     kIMAGELINKS as NSCopying,
                     kREGISTEREDDATE as NSCopying,
                     kPUSHID as NSCopying
-
                 
                 
                 ])
@@ -143,9 +142,12 @@ class FUser: Equatable {
             }
         }
     }
-    
+    // 사용자 default에 접근함
     func saveUserLocally() {
         
+        
+        userDefaults.setValue(self.userDictionary as! [String: Any], forKey: kCURRENTUSER)
+        userDefaults.synchronize()
     }
     
 
