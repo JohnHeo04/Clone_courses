@@ -137,7 +137,7 @@ class FUser: Equatable {
                 
             } else {
                 // 로그인 하지 않았을 때 false 반환
-                
+                //test
             }
         }
         
