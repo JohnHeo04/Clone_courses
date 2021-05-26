@@ -51,7 +51,20 @@ class WelcomeViewController: UIViewController {
         // 둘 다 비워져있다면 "All ~"를 출력함
         if emailTextField.text != "" && passwordTextField.text != ""{
             //login
-            
+            FUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
+                
+                if error != nil {
+                    
+                    ProgressHUD.showError(error!.localizedDescription)
+                } else if isEmailVerified {
+                    print("go to app")
+                    // enter the application
+                } else {
+                    
+                    ProgressHUD.showError("Please verify your email!")
+                }
+                
+            }
             
         } else {
             ProgressHUD.showError("All fields are required!")

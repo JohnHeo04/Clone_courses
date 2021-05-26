@@ -117,6 +117,34 @@ class FUser: Equatable {
         
     }
     
+    //MARK: - Login
+    class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVerivied: Bool) -> Void) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+            
+            
+            if error == nil {
+                // 어떠한 error도 나지 않는다면 Log-in 성공한다.
+                if authDataResult!.user.isEmailVerified {
+                    
+                    //check if user exists in Firebase
+                    completion(error, true)
+                } else {
+                    print("Email not verified")
+                    completion(error, false)
+                    
+                }
+                
+            } else {
+                // 로그인 하지 않았을 때 false 반환
+                
+            }
+        }
+        
+    }
+    
+    
+    //MARK: - Register
     
     class func registerUserWith(email: String, password: String, userName: String, city: String, isMale: Bool, dateOfBirth: Date, completion: @escaping (_ error: Error?) -> Void) {
         
