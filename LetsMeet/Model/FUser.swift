@@ -141,6 +141,7 @@ class FUser: Equatable {
             }
         }
         
+//        FirebaseReference(.User)
     }
     
     
