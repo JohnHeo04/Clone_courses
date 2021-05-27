@@ -97,6 +97,7 @@ class FUser: Equatable {
     
     //MARK: - Inits
     // 아래는 위의 변수들을 초기 선언해줌
+    // 사용자의 첫 번째 초기 값을 설정해줌
     init(_objectId: String, _email: String, _username: String, _city: String, _dateOfBirth: Date, _isMale: Bool, _avatarLink: String = "") {
         
         objectId = _objectId
@@ -119,10 +120,10 @@ class FUser: Equatable {
     
     
     init(_dictionary: NSDictionary) {
-        // objectId가 String형태 일지도 모른다. 다만 경우에 따라서 String이 아닐 수 있으므로 "" 텅 빈 String 형태로 둔다.
-        // 고로 App은 충돌하지 않음
-        // 우리의 compiler가 우리의 dictionary에 접근해서 objectId를 얻고 거기에 int가 있을지도 모른다.
-        // 만약 우리가 as!로 강제 string타입을 가졌다면 App이 충돌했을지도 모름
+        // as! String 은 강제로 String타입으로 형변환 함
+        // 그러나 경우에 따라 사용자가 objectId를 가지지 않을경우 앱에서 충돌을 일으키게 됨
+        // 해결책 : as? 로 해결이 가능함
+        //  또한 '??' 를 붙여서 만약 string이 아닐 경우 "" 빈 string형태로 바꿔줌
         objectId = _dictionary[kOBJECTID] as? String ?? ""
         email = _dictionary[kEMAIL] as? String ?? ""
         username = _dictionary[kUSERNAME] as? String ?? ""
@@ -151,6 +152,7 @@ class FUser: Equatable {
         }
     }
     
+    
     //MARK: - Login
     class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVerivied: Bool) -> Void) {
         
@@ -161,6 +163,7 @@ class FUser: Equatable {
                 // 어떠한 error도 나지 않는다면 Log-in 성공한다.
                 if authDataResult!.user.isEmailVerified {
                     
+                    FirebaseListener.shared.downloadCurrentUserFromFirebase(userId: authDataResult!.user.uid, email: email)
                     //check if user exists in Firebase
                     completion(error, true)
                 } else {
@@ -205,6 +208,8 @@ class FUser: Equatable {
             }
         }
     }
+    
+    //MARK: - Save user funcs
     // 사용자 default에 접근함
     func saveUserLocally() {
         
@@ -213,5 +218,25 @@ class FUser: Equatable {
         userDefaults.synchronize()
     }
     
+    func saveUserToFireStore() {
+        // Firebase의 reference에 접근하게 됨, - 'Firestore Database'에 접근
+        // 지금의 func는 위의 class안에 속해 있다.
+        // 아래의 self는 FUser Class에 속한다.
+        // 아래의 구문을 통해 우리의 Firebase에 저장한다.
+        // 첫 번째 버전 함수, 각각의 Firebase 함수들은 뭔가를 얻거나 저장한다.
+        
+        // Firebase의 함수들은 두가지 버전을 가지고 있음
+        // 1. 저장하기, 어떠한 에러 핸들링도 없음
+        // 2. callback(회신, 재통보) 기능)
+//        FirebaseReference(.User).document(self.objectId).setData(self.userDictionary as! [String : Any])
+        //위의 코드가 더 간결하지만 앱의 안정성을 고려해 error에 대한 해결방안까지 넣어줌
+        FirebaseReference(.User).document(self.objectId).setData(self.userDictionary as! [String : Any]) { (error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
 
 }
