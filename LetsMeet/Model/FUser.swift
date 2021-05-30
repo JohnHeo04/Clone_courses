@@ -209,6 +209,22 @@ class FUser: Equatable {
         }
     }
     
+    //MARK: - Resend Links
+    
+    class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void) {
+        
+        Auth.auth().currentUser?.reload(completion: { (error) in
+            
+            Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
+                
+                completion(error)
+            })
+        })
+        
+    }
+    
+    
+    
     //MARK: - Save user funcs
     // 사용자 default에 접근함
     func saveUserLocally() {
