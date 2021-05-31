@@ -8,6 +8,21 @@
 import Foundation
 import UIKit
 
+extension Date {
+    
+    func longDate() -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.string(from: self)
+    }
+    
+    func stringDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "ddMMMyyyyHHmmss"
+        return dateFormatter.string(from: self)
+    }
+}
 
 // UIColor는 UIKit에 속해있음
 extension UIColor {

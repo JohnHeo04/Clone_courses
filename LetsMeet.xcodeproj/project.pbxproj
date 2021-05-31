@@ -11,7 +11,7 @@
 		564AE5A5265E678A00748E3D /* FirebaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AE5A4265E678A00748E3D /* FirebaseListener.swift */; };
 		566F9451265CD72400258A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F9450265CD72400258A72 /* Constants.swift */; };
 		5673B6CC2664CA32005DFC14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B6CB2664CA32005DFC14 /* Extensions.swift */; };
-		568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481826426A5C00BF1297 /* AppDelegate.swift */; };
+		568C481926426A5C00BF1297 /* AppDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481826426A5C00BF1297 /* AppDelegate .swift */; };
 		568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481A26426A5C00BF1297 /* SceneDelegate.swift */; };
 		568C482026426A5C00BF1297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568C481E26426A5C00BF1297 /* Main.storyboard */; };
 		568C482226426A6200BF1297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 568C482126426A6200BF1297 /* Assets.xcassets */; };
@@ -29,7 +29,7 @@
 		566F9450265CD72400258A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../New Group/Constants.swift"; sourceTree = "<group>"; };
 		5673B6CB2664CA32005DFC14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		568C481526426A5C00BF1297 /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		568C481826426A5C00BF1297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		568C481826426A5C00BF1297 /* AppDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate .swift"; sourceTree = "<group>"; };
 		568C481A26426A5C00BF1297 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		568C481F26426A5C00BF1297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		568C482126426A6200BF1297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		568C481726426A5C00BF1297 /* LetsMeet */ = {
 			isa = PBXGroup;
 			children = (
-				568C481826426A5C00BF1297 /* AppDelegate.swift */,
+				568C481826426A5C00BF1297 /* AppDelegate .swift */,
 				568C481A26426A5C00BF1297 /* SceneDelegate.swift */,
 				564AE5A1265E38F700748E3D /* Welcome */,
 				564AE59F265E388500748E3D /* Model */,
@@ -255,7 +255,7 @@
 				5673B6CC2664CA32005DFC14 /* Extensions.swift in Sources */,
 				56F2320A265B908500DB913B /* FUser.swift in Sources */,
 				56F23206265B61F200DB913B /* WelcomeViewController.swift in Sources */,
-				568C481926426A5C00BF1297 /* AppDelegate.swift in Sources */,
+				568C481926426A5C00BF1297 /* AppDelegate .swift in Sources */,
 				568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */,
 				56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */,
 				564AE5A3265E398D00748E3D /* FCollectionReference.swift in Sources */,

@@ -74,30 +74,30 @@ class RegisterViewController: UIViewController {
     
     // 배경을 터치하면 키보드가 사라지게 됨
     // Date형태를 Picker 형태로 바꿀 예정이기에 더 이상 아래 함수는 쓰이지 않음
-//    private func setupDatePicker() {
-//
-//        datePicker.datePickerMode = .date
-//        datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
-//        dateOfBirthTextField.inputView = datePicker
-//
-//        let toolBar = UIToolbar()
-//        toolBar.barStyle = .default
-//        toolBar.isTranslucent = true
-//        toolBar.tintColor = UIColor().primary()
-//        toolBar.sizeToFit()
-//
-//        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
-//
-//        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//
-//        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClicked))
-//
-//        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
-//        toolBar.isUserInteractionEnabled = true
-//
+    private func setupDatePicker() {
+
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+//        dateOfBirthTextField.inpsutView = datePicker
+
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .yellow
+        toolBar.sizeToFit()
+
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
+
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissKeyboard))
+
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+
 //        dateOfBirthTextField.inputAccessoryView = toolBar
-//
-//    }
+
+    }
     
     private func setupBackgroundTouch() {
         backgroundImageView.isUserInteractionEnabled = true
@@ -117,14 +117,10 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func handleDatePicker() {
-        
+//        dateOfBirthTextField.text = datePicker.date.longDate()
         
     }
     
-    @objc func doneClicked() {
-        
-        
-    }
     
     private func isTextDataImputed() -> Bool {
         // 가입화면 중 모든 TextField가 채워져있다면 에러가 발생하지 않음

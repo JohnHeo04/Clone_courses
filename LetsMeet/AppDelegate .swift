@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         FirebaseApp.configure()
+        setupUIConfigurations()
         return true
     }
 
@@ -32,7 +34,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
+    //MARK: - UIConfiguration
+    private func setupUIConfigurations() {
+        
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().backgroundColor = .green
+        UITabBar.appearance().unselectedItemTintColor = UIColor().tapBarUnselected()
+        UITabBar.appearance().tintColor = .white
+        
+        
+        UINavigationBar.appearance().barTintColor = UIColor().primary()
+        UINavigationBar.appearance().backgroundColor = UIColor().primary()
+        UIBarButtonItem.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        
+    }
 
 }
 
