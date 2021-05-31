@@ -15,7 +15,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var dateOfBirthTextField: UITextField!
+//    @IBOutlet weak var dateOfBirthTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var genderSegmentOutlet: UISegmentedControl!
@@ -23,7 +24,6 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Vars
     var isMale = true
-    var datePicker = UIDatePicker()
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -31,7 +31,6 @@ class RegisterViewController: UIViewController {
         
         overrideUserInterfaceStyle = .dark
         setupBackgroundTouch()
-        setupDatePicker()
     }
     
     //MARK: - IBActions
@@ -74,30 +73,31 @@ class RegisterViewController: UIViewController {
     //MARK: - Setup
     
     // 배경을 터치하면 키보드가 사라지게 됨
-    private func setupDatePicker() {
-        
-        datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
-        dateOfBirthTextField.inputView = datePicker
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = .default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor().primary()
-        toolBar.sizeToFit()
-        
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
-        
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClicked))
-        
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        
-        dateOfBirthTextField.inputAccessoryView = toolBar
-        
-    }
+    // Date형태를 Picker 형태로 바꿀 예정이기에 더 이상 아래 함수는 쓰이지 않음
+//    private func setupDatePicker() {
+//
+//        datePicker.datePickerMode = .date
+//        datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+//        dateOfBirthTextField.inputView = datePicker
+//
+//        let toolBar = UIToolbar()
+//        toolBar.barStyle = .default
+//        toolBar.isTranslucent = true
+//        toolBar.tintColor = UIColor().primary()
+//        toolBar.sizeToFit()
+//
+//        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
+//
+//        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//
+//        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClicked))
+//
+//        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+//        toolBar.isUserInteractionEnabled = true
+//
+//        dateOfBirthTextField.inputAccessoryView = toolBar
+//
+//    }
     
     private func setupBackgroundTouch() {
         backgroundImageView.isUserInteractionEnabled = true
@@ -129,7 +129,7 @@ class RegisterViewController: UIViewController {
     private func isTextDataImputed() -> Bool {
         // 가입화면 중 모든 TextField가 채워져있다면 에러가 발생하지 않음
         // && 하나라도 만족시키지 않으면 False의 else - "All fields are required!" 출력
-        return  usernameTextField.text != "" && emailTextField.text != "" && cityTextField.text != "" && dateOfBirthTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != ""
+        return  usernameTextField.text != "" && emailTextField.text != "" && cityTextField.text != ""  && passwordTextField.text != "" && confirmPasswordTextField.text != ""
     }
     
     //MARK: - RegisterUser
@@ -137,10 +137,10 @@ class RegisterViewController: UIViewController {
     private func registerUser() {
         
         ProgressHUD.show()
-        
-        FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, userName: usernameTextField.text!, city: cityTextField.text!, isMale: isMale, dateOfBirth: Date(), completion: {
+
+        FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, userName: usernameTextField.text!, city: cityTextField.text!, isMale: isMale, dateOfBirth: datePicker.date, completion: {
             error in
-            
+
             // 만약에 error가 나지 않는다면 email로 인증확인서를 보냄
             if error == nil {
                 ProgressHUD.showSuccess("Verification email sent!")
@@ -148,7 +148,7 @@ class RegisterViewController: UIViewController {
             } else {
                 ProgressHUD.showError(error!.localizedDescription)
             }
-                               
+
         })
     }
 }
