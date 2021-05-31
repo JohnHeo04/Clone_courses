@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Vars
     var isMale = true
-    
+    var datePicker = UIDatePicker()
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class RegisterViewController: UIViewController {
         
         overrideUserInterfaceStyle = .dark
         setupBackgroundTouch()
+        setupDatePicker()
     }
     
     //MARK: - IBActions
@@ -73,6 +74,31 @@ class RegisterViewController: UIViewController {
     //MARK: - Setup
     
     // 배경을 터치하면 키보드가 사라지게 됨
+    private func setupDatePicker() {
+        
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        dateOfBirthTextField.inputView = datePicker
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor().primary()
+        toolBar.sizeToFit()
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
+        
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClicked))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        dateOfBirthTextField.inputAccessoryView = toolBar
+        
+    }
+    
     private func setupBackgroundTouch() {
         backgroundImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
@@ -85,12 +111,20 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Helpers
     // 배경을 누르면 사라졌던 키보드를 아래의 함수로 다시 호출하게 됨
-    private func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.view.endEditing(false)
         
     }
     
+    @objc func handleDatePicker() {
+        
+        
+    }
     
+    @objc func doneClicked() {
+        
+        
+    }
     
     private func isTextDataImputed() -> Bool {
         // 가입화면 중 모든 TextField가 채워져있다면 에러가 발생하지 않음

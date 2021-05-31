@@ -59,6 +59,8 @@ class WelcomeViewController: UIViewController {
         // 둘 다 비워져있다면 "All ~"를 출력함
         if emailTextField.text != "" && passwordTextField.text != ""{
             //login
+            ProgressHUD.show()
+            
             FUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
                 
                 if error != nil {
@@ -67,6 +69,8 @@ class WelcomeViewController: UIViewController {
                 } else if isEmailVerified {
 //                    print("go to app")
                     // enter the application
+                    
+                    ProgressHUD.dismiss()
                     self.goToApp()
                 } else {
                     
