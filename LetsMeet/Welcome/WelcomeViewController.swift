@@ -65,8 +65,9 @@ class WelcomeViewController: UIViewController {
                     
                     ProgressHUD.showError(error!.localizedDescription)
                 } else if isEmailVerified {
-                    print("go to app")
+//                    print("go to app")
                     // enter the application
+                    self.goToApp()
                 } else {
                     
                     ProgressHUD.showError("Please verify your email!")
@@ -100,5 +101,16 @@ class WelcomeViewController: UIViewController {
         
     }
     
+    
+    //MARK: - Navigation
+    private func goToApp() {
+        
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MainView") as! UITabBarController
+        
+        // 로그인 다음화면에서 나오는 화면을 full screen으로 계속해서 설정하게 해놓음
+        mainView.modalPresentationStyle = .fullScreen
+        self.present(mainView, animated: true, completion: nil)
+        
+    }
     
 }
