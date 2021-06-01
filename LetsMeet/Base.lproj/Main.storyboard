@@ -521,7 +521,7 @@
         <!--Profile-->
         <scene sceneID="Hyt-9g-6Hk">
             <objects>
-                <tableViewController id="j2b-9z-L2b" customClass="ProfileTableTableViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="j2b-9z-L2b" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dVI-SW-kB1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
