@@ -521,7 +521,7 @@
         <!--Profile-->
         <scene sceneID="Hyt-9g-6Hk">
             <objects>
-                <tableViewController id="j2b-9z-L2b" sceneMemberID="viewController">
+                <tableViewController id="j2b-9z-L2b" customClass="ProfileTableViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dVI-SW-kB1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -546,7 +546,7 @@
                                                                 <constraint firstAttribute="height" constant="200" id="piu-cD-paP"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name &amp; Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTG-sW-y9d">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name &amp; Age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTG-sW-y9d">
                                                             <rect key="frame" x="8" y="268" width="374" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="8LM-wn-J13"/>
@@ -567,6 +567,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-jU-iB9">
                                                             <rect key="frame" x="165" y="370" width="60" height="60"/>
                                                             <state key="normal" image="camera"/>
+                                                            <connections>
+                                                                <action selector="cameraButtonPressed:" destination="j2b-9z-L2b" eventType="touchUpInside" id="QZf-Kw-QPO"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-Dn-Osb">
                                                             <rect key="frame" x="245" y="360" width="80" height="80"/>
@@ -575,6 +578,9 @@
                                                                 <constraint firstAttribute="width" constant="80" id="XpQ-Du-tyC"/>
                                                             </constraints>
                                                             <state key="normal" image="edit"/>
+                                                            <connections>
+                                                                <action selector="editButtonPressed:" destination="j2b-9z-L2b" eventType="touchUpInside" id="WGi-jB-VPU"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvb-Bs-c3N">
                                                             <rect key="frame" x="65" y="360" width="80" height="80"/>
@@ -585,7 +591,7 @@
                                                             <state key="normal" image="settings"/>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="lYp-jU-iB9" secondAttribute="bottom" constant="20" id="0Ya-bM-FQR"/>
                                                         <constraint firstItem="F11-QA-ejb" firstAttribute="centerX" secondItem="QiK-v3-FCE" secondAttribute="centerX" id="2Se-uc-K2A"/>
@@ -604,6 +610,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="QiK-v3-FCE" firstAttribute="leading" secondItem="m6x-K0-b7P" secondAttribute="leading" id="3To-UO-4jc"/>
                                                 <constraint firstItem="QiK-v3-FCE" firstAttribute="top" secondItem="m6x-K0-b7P" secondAttribute="top" id="Du3-w4-AE6"/>
@@ -767,7 +774,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OY3-84-Psi">
-                                        <rect key="frame" x="0.0" y="995.00001057711518" width="390" height="43.666667938232308"/>
+                                        <rect key="frame" x="0.0" y="995.00001057711518" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OY3-84-Psi" id="Xuw-gx-XAW">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -887,6 +894,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="ogR-Kg-PrT"/>
+                    <connections>
+                        <outlet property="aboutMeTextView" destination="H7W-fF-oxj" id="sYc-kq-t5R"/>
+                        <outlet property="avatarImageView" destination="F11-QA-ejb" id="eDb-Dt-cMJ"/>
+                        <outlet property="cityCountryLabel" destination="NAn-TL-ejA" id="hgC-89-THA"/>
+                        <outlet property="cityTextField" destination="rmJ-Lo-A1B" id="O4x-Jb-UdN"/>
+                        <outlet property="countryTextField" destination="86p-az-gNq" id="GLG-IG-AX2"/>
+                        <outlet property="educationTextField" destination="cqs-d2-zTW" id="cWJ-1Q-FGu"/>
+                        <outlet property="genderTextField" destination="2fK-gr-ONK" id="EUL-UK-3tP"/>
+                        <outlet property="jobTextField" destination="hhM-wB-U21" id="abb-XI-0nI"/>
+                        <outlet property="nameAgeLabel" destination="bTG-sW-y9d" id="c05-pF-rUP"/>
+                        <outlet property="profileCellBackgroundView" destination="QiK-v3-FCE" id="faR-9Q-xmS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxB-FJ-zF1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
