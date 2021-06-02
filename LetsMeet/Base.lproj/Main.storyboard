@@ -522,10 +522,10 @@
         <scene sceneID="Hyt-9g-6Hk">
             <objects>
                 <tableViewController id="j2b-9z-L2b" customClass="ProfileTableViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dVI-SW-kB1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dVI-SW-kB1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="pJ4-Ly-oQv">
                                 <cells>
@@ -654,7 +654,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="H7W-fF-oxj" secondAttribute="bottom" constant="8" id="9Jp-WF-zeF"/>
                                                         <constraint firstItem="H7W-fF-oxj" firstAttribute="top" secondItem="r7V-b0-V3U" secondAttribute="top" constant="8" id="Iym-hy-bK4"/>
@@ -664,6 +664,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="r7V-b0-V3U" firstAttribute="trailing" secondItem="aje-Jf-WtU" secondAttribute="trailingMargin" id="5JE-lz-Vla"/>
                                                 <constraint firstItem="r7V-b0-V3U" firstAttribute="leading" secondItem="aje-Jf-WtU" secondAttribute="leadingMargin" id="Rfz-7T-qPi"/>
@@ -695,6 +696,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="EHE-sI-Dwe" firstAttribute="trailing" secondItem="kRd-Mg-qUa" secondAttribute="trailingMargin" constant="24" id="Eav-g2-Tfy"/>
                                                 <constraint firstItem="EHE-sI-Dwe" firstAttribute="centerY" secondItem="kRd-Mg-qUa" secondAttribute="centerY" id="Hki-cD-ODS"/>
@@ -721,6 +723,7 @@
                                                 <constraint firstItem="hhM-wB-U21" firstAttribute="leading" secondItem="Laa-US-06t" secondAttribute="leading" constant="16" id="taH-0O-daC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bdV-0q-857">
                                         <rect key="frame" x="0.0" y="859.00000641562724" width="390" height="43.666667938232422"/>
@@ -744,6 +747,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="cqs-d2-zTW" secondAttribute="trailing" constant="16" id="rpl-jA-fFH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -772,9 +776,10 @@
                                                 <constraint firstItem="Hw0-6O-aYO" firstAttribute="leading" secondItem="gkn-qz-anW" secondAttribute="leading" constant="16" id="HeG-Ym-a8m"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OY3-84-Psi">
-                                        <rect key="frame" x="0.0" y="995.00001057711518" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="995.00001057711518" width="390" height="43.666667938232308"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OY3-84-Psi" id="Xuw-gx-XAW">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -792,6 +797,7 @@
                                                 <constraint firstItem="2fK-gr-ONK" firstAttribute="leading" secondItem="Xuw-gx-XAW" secondAttribute="leading" constant="16" id="U0f-bG-pUV"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FPX-GS-AcF">
                                         <rect key="frame" x="0.0" y="1038.6666785153475" width="390" height="43.666667938232422"/>
@@ -815,6 +821,7 @@
                                                 <constraint firstItem="rmJ-Lo-A1B" firstAttribute="leading" secondItem="4CN-pz-EB3" secondAttribute="leading" constant="16" id="hHv-VS-4SB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7vs-jX-EAB">
                                         <rect key="frame" x="0.0" y="1082.3333464535799" width="390" height="43.666667938232422"/>
@@ -838,6 +845,7 @@
                                                 <constraint firstItem="86p-az-gNq" firstAttribute="leading" secondItem="bE3-Eg-fyU" secondAttribute="leading" constant="16" id="xa0-71-Smi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BIy-8g-10c">
                                         <rect key="frame" x="0.0" y="1126.0000143918123" width="390" height="43.666667938232422"/>
@@ -861,6 +869,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Jti-gZ-kka" secondAttribute="trailing" constant="16" id="yBk-zP-ClE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pjH-Fx-SFm">
                                         <rect key="frame" x="0.0" y="1169.6666823300448" width="390" height="43.666667938232422"/>
@@ -884,6 +893,7 @@
                                                 <constraint firstItem="UHg-i2-lWV" firstAttribute="centerY" secondItem="3Ni-Rt-CwY" secondAttribute="centerY" id="qc3-41-aj9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -896,6 +906,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="ogR-Kg-PrT"/>
                     <connections>
                         <outlet property="aboutMeTextView" destination="H7W-fF-oxj" id="sYc-kq-t5R"/>
+                        <outlet property="aboutMeView" destination="r7V-b0-V3U" id="j4P-ta-8Ph"/>
                         <outlet property="avatarImageView" destination="F11-QA-ejb" id="eDb-Dt-cMJ"/>
                         <outlet property="cityCountryLabel" destination="NAn-TL-ejA" id="hgC-89-THA"/>
                         <outlet property="cityTextField" destination="rmJ-Lo-A1B" id="O4x-Jb-UdN"/>
