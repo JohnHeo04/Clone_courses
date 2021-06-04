@@ -11,7 +11,6 @@ import UIKit
 extension Date {
     
     func longDate() -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         return dateFormatter.string(from: self)
@@ -21,6 +20,19 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "ddMMMyyyyHHmmss"
         return dateFormatter.string(from: self)
+    }
+    // 사용자에게 주어진 'Date'를 이용하여 날짜를 계산하는 함수
+    func interval(ofComponent comp: Calendar.Component, fromDate date: Date) -> Int {
+        
+        let currentCalendar = Calendar.current
+        
+        guard let start = currentCalendar.ordinality(of: comp, in: .era, for: date) else
+            { return 0 }
+        guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else
+            { return 0 }
+        
+        return end - start
+        
     }
 }
 

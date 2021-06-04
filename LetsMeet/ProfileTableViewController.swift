@@ -107,8 +107,10 @@ class ProfileTableViewController: UITableViewController {
     private func loadUserData() {
         // 현재 사용자의 데이터를 불러오는 함수
         let currentUser = FUser.currentUser()!
+        // 년도를 빼면 '-' 마이너스가 발생하지만 여기서 절대값 abs를 써주게 되면 '-' 제거값이 화면에 표기됨
+        nameAgeLabel.text = currentUser.username + ", \(abs(currentUser.dateOfBirth.interval(ofComponent: .year, fromDate: Date())))"
         
-        nameAgeLabel.text = currentUser.username
+        
         cityCountryLabel.text = currentUser.country + ", " + currentUser.city
         aboutMeTextView.text = currentUser.about != "" ? currentUser.about : "A little bit about me..."
         jobTextField.text = currentUser.jobTitle
@@ -118,7 +120,7 @@ class ProfileTableViewController: UITableViewController {
         countryTextField.text = currentUser.country
         heightTextField.text = "\(currentUser.height)"
         lookingForTextField.text = currentUser.lookingFor
-        avatarImageView.image = nil
+        avatarImageView.image = UIImage(named: "avatar")
         //TODO: set avatar picture.
     }
     
