@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import UIKit
+//import Fi
 
 // 한 유저가 같은 ID를 가지고 있다면 체크하는 class protocol
 // Equatable은 Protocol임
@@ -151,6 +152,28 @@ class FUser: Equatable {
             dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
         }
     }
+    
+    //MARK: - Returning current user
+    
+    class func currentId() -> String {
+        return Auth.auth().currentUser!.uid
+        
+    }
+    // 현재 사용자를 인증하는 함수
+    // 만약 userDefaults에 forKey, kCURRENTUSER가 있다면 userDictionary는 유효함
+    // 만약 없다면 nil 아무것도 반환하지 않음
+    class func currentUser() -> FUser? {
+        
+        if Auth.auth().currentUser != nil {
+            if let userDictionary = userDefaults.object(forKey: kCURRENTUSER) {
+                return FUser(_dictionary: userDictionary as! NSDictionary)
+            }
+            
+        }
+        
+        return nil
+    }
+    
     
     
     //MARK: - Login
