@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
-        UITabBar.appearance().backgroundColor = .green
+        UITabBar.appearance().backgroundColor = .red
         UITabBar.appearance().unselectedItemTintColor = UIColor().tapBarUnselected()
         UITabBar.appearance().tintColor = .white
         
