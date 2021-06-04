@@ -914,12 +914,12 @@
                         <outlet property="cityCountryLabel" destination="NAn-TL-ejA" id="hgC-89-THA"/>
                         <outlet property="cityTextField" destination="rmJ-Lo-A1B" id="O4x-Jb-UdN"/>
                         <outlet property="countryTextField" destination="86p-az-gNq" id="GLG-IG-AX2"/>
-                        <outlet property="educationTextField" destination="cqs-d2-zTW" id="cWJ-1Q-FGu"/>
                         <outlet property="genderTextField" destination="2fK-gr-ONK" id="EUL-UK-3tP"/>
                         <outlet property="heightTextField" destination="Jti-gZ-kka" id="pk3-oa-2VQ"/>
                         <outlet property="jobTextField" destination="hhM-wB-U21" id="abb-XI-0nI"/>
                         <outlet property="lookingForTextField" destination="UHg-i2-lWV" id="CCL-Uu-XEf"/>
                         <outlet property="nameAgeLabel" destination="bTG-sW-y9d" id="c05-pF-rUP"/>
+                        <outlet property="professionTextField" destination="cqs-d2-zTW" id="cWJ-1Q-FGu"/>
                         <outlet property="profileCellBackgroundView" destination="QiK-v3-FCE" id="faR-9Q-xmS"/>
                     </connections>
                 </tableViewController>

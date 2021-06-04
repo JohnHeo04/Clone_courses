@@ -20,7 +20,7 @@ class ProfileTableViewController: UITableViewController {
     
     @IBOutlet weak var jobTextField: UITextField!
     
-    @IBOutlet weak var educationTextField: UITextField!
+    @IBOutlet weak var professionTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var countryTextField: UITextField!
@@ -42,7 +42,12 @@ class ProfileTableViewController: UITableViewController {
         overrideUserInterfaceStyle = .light
         
         setupBackgrounds()
-        updateEditingMode()
+        
+        // 만약 FUser의 '현재 사용자'가 nil로 비어있다면 아래 loadUserData() 함수 활성
+        if FUser.currentUser() != nil {
+            loadUserData()
+            updateEditingMode()
+        }
         
     }
     //  프로필에 있는 섹션들을 없앰
@@ -98,12 +103,33 @@ class ProfileTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = editingMode ? saveButton : nil
     }
     
+    //MARK: - LoadUserData
+    private func loadUserData() {
+        // 현재 사용자의 데이터를 불러오는 함수
+        let currentUser = FUser.currentUser()!
+        
+        nameAgeLabel.text = currentUser.username
+        cityCountryLabel.text = currentUser.country + ", " + currentUser.city
+        aboutMeTextView.text = currentUser.about != "" ? currentUser.about : "A little bit about me..."
+        jobTextField.text = currentUser.jobTitle
+        professionTextField.text = currentUser.profession
+        genderTextField.text = currentUser.isMale ? "Male" : "Female"
+        cityTextField.text = currentUser.city
+        countryTextField.text = currentUser.country
+        heightTextField.text = "\(currentUser.height)"
+        lookingForTextField.text = currentUser.lookingFor
+        avatarImageView.image = nil
+        //TODO: set avatar picture.
+    }
+    
+    
+    
     //MARK: - Editing Mode
     private func updateEditingMode() {
         // 아래 height과 lookingFor에 계속 'Fatal Error : Thread 1'오류가 나서 계속 방황하다가 윗쪽에서 'Storyboard'와 위쪽 변수명이 끊긴걸 발견하고 다시 이어줌 😤
         aboutMeTextView.isUserInteractionEnabled = editingMode
         jobTextField.isUserInteractionEnabled = editingMode
-        educationTextField.isUserInteractionEnabled = editingMode
+        professionTextField.isUserInteractionEnabled = editingMode
         genderTextField.isUserInteractionEnabled = editingMode
         cityTextField.isUserInteractionEnabled = editingMode
         countryTextField.isUserInteractionEnabled = editingMode
