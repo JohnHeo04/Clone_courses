@@ -78,10 +78,19 @@ class ProfileTableViewController: UITableViewController {
         editingMode ? showKeyboard() : hideKeyboard()
         showSaveButton()
     }
-    
+    // 아래의 함수 기능은
     @objc func editUserData() {
         
+        let user = FUser.currentUser()!
         
+        user.about = aboutMeTextView.text
+        user.jobTitle = jobTextField.text ?? ""
+        user.profession = professionTextField.text ?? ""
+        user.isMale = genderTextField.text == "Male"
+        user.city = cityTextField.text ?? ""
+        user.country = countryTextField.text ?? ""
+        user.lookingFor = lookingForTextField.text ?? ""
+        user.height = Double(heightTextField.text ?? "0") ?? 0.0
     }
     
     //MARK: - Setup
