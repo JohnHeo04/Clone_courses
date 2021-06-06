@@ -31,6 +31,7 @@ class ProfileTableViewController: UITableViewController {
     // 편집모드가 아닐때는 편집 불가 상태로 바꾸는 변수
     var editingMode = false
     
+    var avatarImage: UIImage?
     
     
     //MARK: - ViewLifeCycle
@@ -91,6 +92,32 @@ class ProfileTableViewController: UITableViewController {
         user.country = countryTextField.text ?? ""
         user.lookingFor = lookingForTextField.text ?? ""
         user.height = Double(heightTextField.text ?? "0") ?? 0.0
+        
+        // 사용자가 입력한 정보가 실시간으로 'Firebase'에 업데이트 되는 함수
+        if avatarImage != nil {
+            
+            //upload new avarat
+            //save user
+            
+            
+        } else {
+            //save
+            saveUserData(user: user)
+        }
+        
+        editingMode = false
+        updateEditingMode()
+        showSaveButton()
+        // 'save'버튼 클릭시 사용자의 데이터를 프로필 아래에 업데이트
+        loadUserData()
+    }
+    
+    private func saveUserData(user: FUser) {
+        
+        user.saveUserLocally()
+        user.saveUserToFireStore()
+        
+        
     }
     
     //MARK: - Setup
