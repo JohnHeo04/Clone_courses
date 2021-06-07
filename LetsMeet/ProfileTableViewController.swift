@@ -8,7 +8,7 @@
 import UIKit
 // 아래의 Gallery는 오픈소스
 import Gallery
-
+import ProgressHUD
 
 class ProfileTableViewController: UITableViewController {
 
@@ -217,12 +217,12 @@ class ProfileTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Change Avatar", style: .default, handler: { (alert) in
             
-            print("change avatar")
+            self.showGallery(forAvatar: true)
         }))
         
         alertController.addAction(UIAlertAction(title: "Upload Pictures", style: .default, handler: { (alert) in
             
-            print("upload pictures")
+            self.showGallery(forAvatar: false)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -263,3 +263,50 @@ class ProfileTableViewController: UITableViewController {
 
     
 }
+
+extension ProfileTableViewController: GalleryControllerDelegate {
+    
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+        
+        if images.count > 0 {
+            
+            if uploadingAvatar {
+                
+                images.first!.resolve { (icon) in
+                    
+                    if icon != nil {
+                        
+                        self.editingMode = true
+                        self.showSaveButton()
+                        
+                        self.avatarImageView.image = icon
+                        self.avatarImage = icon
+                    } else {
+                        ProgressHUD.showError("Couldn't select image!")
+                    }
+                }
+                
+            } else {
+                
+                print("we have multiplee images")
+                
+            }
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    func galleryControllerDidCancel(_ controller: GalleryController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+
+
+
