@@ -190,6 +190,15 @@ class ProfileTableViewController: UITableViewController {
         self.view.endEditing(false)
     }
     
+    private func uploadImages(images: [UIImage?]) {
+        // Loading Spinning bar
+        ProgressHUD.show()
+        
+        // upload images return the links to us
+        
+        
+    }
+    
     //MARK: - Gallery
     
     private func showGallery(forAvatar: Bool) {
@@ -288,7 +297,12 @@ extension ProfileTableViewController: GalleryControllerDelegate {
                 
             } else {
                 
-                print("we have multiplee images")
+                Image.resolve(images: images) { (resolvedImages) in
+                    
+                    self.uploadImages(images: resolvedImages)
+                    
+                    
+                }
                 
             }
         }
