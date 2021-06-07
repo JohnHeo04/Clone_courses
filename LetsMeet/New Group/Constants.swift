@@ -8,6 +8,9 @@
 import Foundation
 
 public let userDefaults = UserDefaults.standard
+// Firebase 'Storage'에 내재되어있는 Directory의 root dir을 복사해서 가져옴
+public let kFILEREFERENCE = "gs://letsmeet-56787.appspot.com"
+
 
 //FUser
 // 사용자의 큰 Dictionary

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5641E455266E0CD5009C42C1 /* FireStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641E454266E0CD5009C42C1 /* FireStorage.swift */; };
 		564AE5A3265E398D00748E3D /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AE5A2265E398D00748E3D /* FCollectionReference.swift */; };
 		564AE5A5265E678A00748E3D /* FirebaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AE5A4265E678A00748E3D /* FirebaseListener.swift */; };
 		566F9451265CD72400258A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F9450265CD72400258A72 /* Constants.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5641E454266E0CD5009C42C1 /* FireStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStorage.swift; sourceTree = "<group>"; };
 		564AE5A2265E398D00748E3D /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
 		564AE5A4265E678A00748E3D /* FirebaseListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseListener.swift; sourceTree = "<group>"; };
 		566F9450265CD72400258A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../New Group/Constants.swift"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				568C481826426A5C00BF1297 /* AppDelegate .swift */,
 				568C481A26426A5C00BF1297 /* SceneDelegate.swift */,
 				56D01A6E266715E300AF5EBE /* ProfileTableViewController.swift */,
+				5641E454266E0CD5009C42C1 /* FireStorage.swift */,
 				564AE5A1265E38F700748E3D /* Welcome */,
 				564AE59F265E388500748E3D /* Model */,
 				564AE5A0265E38D200748E3D /* Helpers */,
@@ -264,6 +267,7 @@
 				56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */,
 				564AE5A3265E398D00748E3D /* FCollectionReference.swift in Sources */,
 				566F9451265CD72400258A72 /* Constants.swift in Sources */,
+				5641E455266E0CD5009C42C1 /* FireStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
