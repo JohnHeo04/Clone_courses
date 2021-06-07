@@ -6,6 +6,9 @@
 //
 
 import UIKit
+// 아래의 Gallery는 오픈소스
+import Gallery
+
 
 class ProfileTableViewController: UITableViewController {
 
@@ -30,8 +33,10 @@ class ProfileTableViewController: UITableViewController {
     //MARK: - Vars
     // 편집모드가 아닐때는 편집 불가 상태로 바꾸는 변수
     var editingMode = false
+    var uploadingAvatar = true
     
     var avatarImage: UIImage?
+    var gallery: GalleryController!
     
     
     //MARK: - ViewLifeCycle
@@ -184,6 +189,24 @@ class ProfileTableViewController: UITableViewController {
     private func hideKeyboard() {
         self.view.endEditing(false)
     }
+    
+    //MARK: - Gallery
+    
+    private func showGallery(forAvatar: Bool) {
+        
+        uploadingAvatar = forAvatar
+        
+        self.gallery = GalleryController()
+        self.gallery.delegate = self
+        Config.tabsToShow = [.imageTab, .cameraTab]
+        Config.Camera.imageLimit = forAvatar ? 1 : 10
+        Config.initialTab = .imageTab
+        
+        self.present(gallery, animated: true, completion: nil)
+        
+    }
+    
+    
     
     //MARK: - AlertController
     // 사용자의 사진 변경을 눌렀을 때 활성화 되는 함수
