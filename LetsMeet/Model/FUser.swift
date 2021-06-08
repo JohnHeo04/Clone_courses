@@ -118,7 +118,7 @@ class FUser: Equatable {
         imageLinks = []
         
     }
-    
+    #imageLiteral(resourceName: "Screen Shot 2021-06-08 at 7.40.03 PM.png")
     
     init(_dictionary: NSDictionary) {
         // as! String 은 강제로 String타입으로 형변환 함
@@ -151,6 +151,11 @@ class FUser: Equatable {
             // 아래의 ?? 를 optional이라 부름
             dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
         }
+        // 프로필의 기본 이미지 설정을 만약 남자라면 'mPlaceholder' 출력 아니라면 'fPlaceholder' 출력
+        let placeHolder = isMale ? "mPlaceholder" : "fPlaceholder"
+        // Dictionary에 Avatar image를 set하기 위한
+        avatar = UIImage(named: placeHolder)
+        
     }
     
     //MARK: - Returning current user
