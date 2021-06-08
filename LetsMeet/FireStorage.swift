@@ -44,6 +44,30 @@ class FileStorage {
             }
         })
     }
+    // 사용자의 이미지를 Locally로 저장해 줌
+    class func saveImageLocally(imageData: NSData, fileName: String) {
+        // getDocumentsURL 함수는 아래에 표기 됨, 아래 참고
+        var docURL = getDocumentsURL()
+        
+        docURL = docURL.appendingPathComponent(fileName, isDirectory: false)
+        // access our image data
+        // atomically : true = 만약 url쓰는데 성공했다면, 전에 있던 파일은 삭제하고 복사는 하지 않음
+        imageData.write(to: docURL, atomically: true)
+    }
     
+}
+
+func getDocumentsURL() -> URL {
+    // 여러개의 URL을 return 시킨 다음, 마지막으로 last하나만 얻음
+    let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+    
+    return documentURL!
+    
+}
+
+func fileInDocumentsDirectory(filename: String) -> String {
+    let fileURL = getDocumentsURL().appendingPathComponent(filename)
+    
+    return fileURL.path
 }
 

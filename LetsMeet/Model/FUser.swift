@@ -118,7 +118,6 @@ class FUser: Equatable {
         imageLinks = []
         
     }
-    #imageLiteral(resourceName: "Screen Shot 2021-06-08 at 7.40.03 PM.png")
     
     init(_dictionary: NSDictionary) {
         // as! String 은 강제로 String타입으로 형변환 함
