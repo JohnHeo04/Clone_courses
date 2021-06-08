@@ -100,21 +100,30 @@ class ProfileTableViewController: UITableViewController {
         
         // 사용자가 입력한 정보가 실시간으로 'Firebase'에 업데이트 되는 함수
         if avatarImage != nil {
-            
             //upload new avarat
             //save user
-            
+            // Firebase에 avatarLink가 생겨남
+            // Storage에 사진 파일이 업로드 됨
+            uploadAvatar(avatarImage!) { (avatarLink) in
+                
+                user.avatarLink = avatarLink ?? ""
+                user.avatar = self.avatarImage
+                
+                self.saveUserData(user: user)
+                // 'save'버튼 클릭시 사용자의 데이터를 프로필 아래에 업데이트
+
+                self.loadUserData()
+            }
             
         } else {
             //save
             saveUserData(user: user)
+            loadUserData()
         }
         
         editingMode = false
         updateEditingMode()
         showSaveButton()
-        // 'save'버튼 클릭시 사용자의 데이터를 프로필 아래에 업데이트
-        loadUserData()
     }
     
     private func saveUserData(user: FUser) {
@@ -188,6 +197,23 @@ class ProfileTableViewController: UITableViewController {
     
     private func hideKeyboard() {
         self.view.endEditing(false)
+    }
+    
+    //MARK: - FileStorage
+    
+    private func uploadAvatar(_ image: UIImage, completion: @escaping (_ avatarLink: String?) -> Void) {
+        
+        ProgressHUD.show()
+        // 아래 변수는 Firebase Dir에 저장할 변수명 'Avatars/FirstPicture.jpg' 식으로 저장됨
+        let fileDirectory = "Avatars/ _" + FUser.currentId() + ".jpg"
+        // avatarLink를 받아 옴 ->
+        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
+            
+            ProgressHUD.dismiss()
+            // save file locally
+            completion(avatarLink)
+        }
+        
     }
     
     private func uploadImages(images: [UIImage?]) {
