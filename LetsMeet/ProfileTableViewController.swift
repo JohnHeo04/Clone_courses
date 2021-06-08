@@ -111,7 +111,6 @@ class ProfileTableViewController: UITableViewController {
                 
                 self.saveUserData(user: user)
                 // 'save'버튼 클릭시 사용자의 데이터를 프로필 아래에 업데이트
-
                 self.loadUserData()
             }
             
@@ -172,6 +171,7 @@ class ProfileTableViewController: UITableViewController {
         lookingForTextField.text = currentUser.lookingFor
         avatarImageView.image = UIImage(named: "avatar")
         //TODO: set avatar picture.
+        avatarImageView.image = currentUser.avatar
     }
     
     
