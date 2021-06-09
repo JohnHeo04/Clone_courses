@@ -31,6 +31,8 @@ class FirebaseListener {
                 // 사용자의 object를 locally로 저장함
                 user.saveUserLocally()
                 
+                
+                
             } else {
                 //first login
                 // 회원가입 후 첫번째 로그인 하게되는 기능

@@ -152,8 +152,8 @@ class FUser: Equatable {
         }
         // 프로필의 기본 이미지 설정을 만약 남자라면 'mPlaceholder' 출력 아니라면 'fPlaceholder' 출력
         let placeHolder = isMale ? "mPlaceholder" : "fPlaceholder"
-        // Dictionary에 Avatar image를 set하기 위한
-        avatar = UIImage(named: placeHolder)
+        // Dictionary에 Avatar image를 set하기 위한 변수
+        avatar = UIImage(contentsOfFile: fileInDocumentsDirectory(filename: self.objectId)) ?? UIImage(named: placeHolder)
         
     }
     
