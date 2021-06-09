@@ -31,6 +31,9 @@ class FirebaseListener {
                 // 사용자의 object를 locally로 저장함
                 user.saveUserLocally()
                 
+                user.getUserAvatarFromFirestore { (didSet) in
+                    
+                }
                 
                 
             } else {

@@ -70,11 +70,12 @@ class FileStorage {
                 completion(contentsOfFile)
             } else {
                 print("couldn't generate image from local image")
-                completion(UIImage(named: "avatar"))
+                completion(nil)
             }
             
         } else {
             // download
+//            print("Downloading")
             // 만약 빈 String이 아니라면 아무것도 다운 불가
             if imageUrl != "" {
                 // URL String이 비어 있지 않다면 체크
@@ -89,7 +90,7 @@ class FileStorage {
                     if data != nil {
                         // 데이터 URL이 비어 있지 않다면
                         let imageToReturn = UIImage(data: data! as Data)
-                        
+                        // 파일을 Local에다가 저장함
                         FileStorage.saveImageLocally(imageData: data!, fileName: imageFileName!)
                         
                         completion(imageToReturn)
@@ -105,7 +106,7 @@ class FileStorage {
             } else {
                 // 만약 Image Link가 없다면 다시 "avatar" placeHolder를 줌
                 // Default 설정
-                completion(UIImage(named: "avatar"))
+                completion(nil)
             }
             
             
