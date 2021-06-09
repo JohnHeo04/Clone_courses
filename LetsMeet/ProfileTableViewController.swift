@@ -154,8 +154,16 @@ class ProfileTableViewController: UITableViewController {
     
     //MARK: - LoadUserData
     private func loadUserData() {
+        
+        
         // 현재 사용자의 데이터를 불러오는 함수
         let currentUser = FUser.currentUser()!
+        
+        FileStorage.downloadImage(imageUrl: currentUser.avatarLink) { (image) in
+            
+        }
+
+        
         // 년도를 빼면 '-' 마이너스가 발생하지만 여기서 절대값 abs를 써주게 되면 '-' 제거값이 화면에 표기됨
         nameAgeLabel.text = currentUser.username + ", \(abs(currentUser.dateOfBirth.interval(ofComponent: .year, fromDate: Date())))"
         

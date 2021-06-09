@@ -44,6 +44,77 @@ class FileStorage {
             }
         })
     }
+    
+    class func downloadImage(imageUrl: String, completion: @escaping (_ image: UIImage?) -> Void) {
+        // URL로 부터 File name 추출
+        // 만약 이미지가 Local device에 check 된다면 다운로드 하지 않음
+        // check되지 않으면 image 다운 -> local에 저장
+//        print("url is", imageUrl)
+        
+        //MARK: - How to extract from URL
+        // image 파일 이름을 추출하기 위해 아래의 멤소드 사용 '_(underbar)'에 의해 분리되어짐
+        // 위처럼 쓰여지면 '언더바' 기준으로 두 가지로 나뉘어짐
+        // 하지만 우리는 '언더바' 뒤를 쓸 예정
+        // 고로 .last!
+        // 다음, '?(Question Mark)' 기준으로 나누어줌
+        // 결과, Optional("fjPYlFEIf9YemLlreiT3xMHx4o32.jpg")
+        
+        // 다시 한 번, .(Dot)을 기준으로 분리
+        let imageFileName = ((imageUrl.components(separatedBy: "_").last!).components(separatedBy: "?").first)?.components(separatedBy: ".").first!
+//        print(imageFileName)
+        // Local Directory에 있는지 체크
+        if fileExistAt(path: imageFileName!) {
+            print("we have local file")
+            // 클론 강의에선 뒤에 imageFilename에는 아무것도 하지 않았는데 여기선 안하면 왜 오류뜨는지 모르겠음
+            if let contentsOfFile = UIImage(contentsOfFile: fileInDocumentsDirectory(filename: imageFileName!)) {
+                completion(contentsOfFile)
+            } else {
+                print("couldn't generate image from local image")
+                completion(UIImage(named: "avatar"))
+            }
+            
+        } else {
+            // download
+            // 만약 빈 String이 아니라면 아무것도 다운 불가
+            if imageUrl != "" {
+                // URL String이 비어 있지 않다면 체크
+                let documemntURL = URL(string: imageUrl)
+                
+                let downloadQueue = DispatchQueue(label: "downloadQueue")
+                
+                downloadQueue.async {
+                    
+                    let data = NSData(contentsOf: documemntURL!)
+                    
+                    if data != nil {
+                        // 데이터 URL이 비어 있지 않다면
+                        let imageToReturn = UIImage(data: data! as Data)
+                        
+                        FileStorage.saveImageLocally(imageData: data!, fileName: imageFileName!)
+                        
+                        completion(imageToReturn)
+                        
+                    } else {
+                        // 데이터베이스에 이미지가 없다면 아래 출력
+                        print("no image in database")
+                        completion(nil)
+                    }
+                    
+                }
+                
+            } else {
+                // 만약 Image Link가 없다면 다시 "avatar" placeHolder를 줌
+                // Default 설정
+                completion(UIImage(named: "avatar"))
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    
     // 사용자의 이미지를 Locally로 저장해 줌
     class func saveImageLocally(imageData: NSData, fileName: String) {
         // getDocumentsURL 함수는 아래에 표기 됨, 아래 참고
@@ -69,5 +140,27 @@ func fileInDocumentsDirectory(filename: String) -> String {
     let fileURL = getDocumentsURL().appendingPathComponent(filename)
     
     return fileURL.path
+}
+
+func fileExistAt(path: String) -> Bool {
+    // 파일이 존재하지 않을거라 default, 가정하고 false로 시작
+    // 아래의 8줄 정도 되는 코드가 아래의 return ~로 깔끔한 정리가 됨
+    
+/*  정리 전 코드
+    var doesExist = false
+    
+    let filePath = fileInDocumentsDirectory(filename: path)
+    
+    if FileManager.default.fileExists(atPath: filePath) {
+        doesExist = true
+    } else {
+        doesExist = false
+    }
+    
+    return doesExist
+*/
+    // 정리 후 코드, 위의 코드와 동일
+    return FileManager.default.fileExists(atPath: fileInDocumentsDirectory(filename: path))
+    
 }
 
