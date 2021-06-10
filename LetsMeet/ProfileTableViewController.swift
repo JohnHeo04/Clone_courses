@@ -38,6 +38,7 @@ class ProfileTableViewController: UITableViewController {
     var avatarImage: UIImage?
     var gallery: GalleryController!
     
+    var alertTextField: UITextField!
     
     //MARK: - ViewLifeCycle
 
@@ -294,12 +295,13 @@ class ProfileTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Change Email", style: .default, handler: { (alert) in
             
-            print("Change Email")
+            self.showChangeField(value: "Email")
+            
         }))
         
         alertController.addAction(UIAlertAction(title: "Change Name", style: .default, handler: { (alert) in
             
-            print("Change Name")
+            self.showChangeField(value: "Name")
         }))
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (alert) in
@@ -314,7 +316,25 @@ class ProfileTableViewController: UITableViewController {
         
         
     }
-
+    private func showChangeField(value: String) {
+        
+        let alertView = UIAlertController(title: "Updating \(value)", message: "Please write your \(value)", preferredStyle: .alert)
+        
+        alertView.addTextField { (textField) in
+            // 아래의 변수는 global variable
+            self.alertTextField = textField
+            self.alertTextField.placeholder = "New \(value)"
+        }
+        
+        alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
+            
+            print("updating \(value)")
+        }))
+        
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertView, animated: true, completion: nil)
+    }
     
 }
 
