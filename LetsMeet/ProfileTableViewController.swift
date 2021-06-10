@@ -228,9 +228,19 @@ class ProfileTableViewController: UITableViewController {
     private func uploadImages(images: [UIImage?]) {
         // Loading Spinning bar
         ProgressHUD.show()
-        
         // upload images return the links to us
-        
+        FileStorage.uploadImages(images) { (imageLinks) in
+            
+            ProgressHUD.show()
+            
+            let currentUser = FUser.currentUser()!
+            
+            currentUser.imageLinks = imageLinks
+            
+            self.saveUserData(user: currentUser)
+            
+            
+        }
         
     }
     

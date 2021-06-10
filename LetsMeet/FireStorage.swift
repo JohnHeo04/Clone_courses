@@ -13,6 +13,8 @@ let storage = Storage.storage()
 
 
 class FileStorage {
+    
+    
     // 아래의 uploadImage class는 아무것도 return 하지 않음
     // 기본적으로 UIImage를 넣고 Directory에 있는 image를 받아 옴
     class func uploadImage(_ image: UIImage, directory: String, completion: @escaping(_ documentLink: String?) -> Void) {
@@ -44,6 +46,36 @@ class FileStorage {
             }
         })
     }
+    // 사진 여러장 업로드를 위한 함수
+    class func uploadImages(_ images: [UIImage?], completion: @escaping(_ imagelinks: [String]) -> Void) {
+        
+        var uploadImagesCount = 0
+        var imageLinkArray : [String] = []
+        var nameSuffix = 0
+        
+        
+        for image in images {
+            
+            let fileDirectory = "UserImages/" + FUser.currentId() + "/" + "\(nameSuffix)" + ".jpg"
+            
+            uploadImage(image!, directory: fileDirectory) { (imageLink) in
+                
+                if imageLink != nil {
+                    
+                    imageLinkArray.append(imageLink!)
+                    uploadImagesCount += 1
+                    
+                    if uploadImagesCount == images.count {
+                        completion(imageLinkArray)
+                    }
+                }
+            }
+            
+            nameSuffix += 1
+            
+        }
+    }
+
     
     class func downloadImage(imageUrl: String, completion: @escaping (_ image: UIImage?) -> Void) {
         // URL로 부터 File name 추출
