@@ -140,12 +140,45 @@ class FileStorage {
                 // Default 설정
                 completion(nil)
             }
-            
-            
         }
-        
-        
     }
+    //MARK: - Not yet
+    class func downloadImages(imageUrls: [String], completion: @escaping (_ images: [UIImage?]) -> Void) {
+        
+        var imageArray: [UIImage] = []
+        
+        var downloadCounter = 0
+        
+        for link in imageUrls {
+            
+            let url = NSURL(string: link)
+            
+            let downloadQueue = DispatchQueue(label: "downloadQueue")
+            
+            downloadQueue.async {
+                
+                downloadCounter += 1
+                
+                let data = NSData(contentsOf: url! as URL)
+                
+                if data != nil {
+                    
+                    imageArray.append(UIImage(data: data! as Data)!)
+                    
+                    if downloadCounter == imageArray.count {
+                        
+                        completion(imageArray)
+                    }
+                    
+                } else {
+                    // 데이터베이스에 이미지가 없다면 아래 출력
+                    print("no image in database")
+                    completion(imageArray)
+                }
+            }
+        }
+    }
+    
     
     
     // 사용자의 이미지를 Locally로 저장해 줌
