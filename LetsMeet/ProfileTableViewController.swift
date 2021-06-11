@@ -282,7 +282,6 @@ class ProfileTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        
         self.present(alertController, animated: true, completion: nil)
         
         
@@ -316,6 +315,8 @@ class ProfileTableViewController: UITableViewController {
         
         
     }
+    
+    //MARK: - Func : Show change Field
     private func showChangeField(value: String) {
         
         let alertView = UIAlertController(title: "Updating \(value)", message: "Please write your \(value)", preferredStyle: .alert)
@@ -328,7 +329,8 @@ class ProfileTableViewController: UITableViewController {
         
         alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
             
-            print("updating \(value)")
+//            print("updating \(value)")
+            self.updateUserWith(value: value)
         }))
         
         alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -336,6 +338,38 @@ class ProfileTableViewController: UITableViewController {
         self.present(alertView, animated: true, completion: nil)
     }
     
+    //MARK: - Change user info
+    
+    private func updateUserWith(value: String) {
+        // 만약 email을 업데이트 할 때, 비어있으면 안됨
+        // 또한 user name이 20자 이내(?)
+        if alertTextField.text != "" {
+            // 아래는 if, else문 대신 한 줄로 작성한 if 문
+            value == "Email" ? changeEmail() : changeUserName()
+        } else {
+            ProgressHUD.showError("\(value) is empty")
+            
+        }
+    }
+    // 보안상의 이유로 이메일 변경은 이름 변경보다 다소 복잡함
+    private func changeEmail() {
+//        print("Changing email to \(alertTextField.text!)")
+        
+        
+    }
+    
+    private func changeUserName() {
+//        print("Changing name to \(alertTextField.text!)")
+        // 만약 현재 유저가 FUser에 들어있다면~
+        if let currentUser = FUser.currentUser() {
+            currentUser.username = alertTextField.text!
+            // 위에서 currentUser을 업데이트 한다면, 아래에서 저장한다.
+            saveUserData(user: currentUser)
+            // 새로고침 하여 User Name을 불러옴
+            loadUserData()
+        }
+        
+    }
 }
 
 extension ProfileTableViewController: GalleryControllerDelegate {
