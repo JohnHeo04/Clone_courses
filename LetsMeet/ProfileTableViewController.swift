@@ -353,8 +353,16 @@ class ProfileTableViewController: UITableViewController {
     }
     // 보안상의 이유로 이메일 변경은 이름 변경보다 다소 복잡함
     private func changeEmail() {
-//        print("Changing email to \(alertTextField.text!)")
-        
+        // Firebase의 'Authentication'에 새로운 메일 인증이 완료됨
+        FUser.currentUser()?.updateUserEmail(newEmail: alertTextField.text!, completion: { (error) in
+            // 에러가 일어나지 않으면 "Success!" 출력
+            if error == nil {
+                ProgressHUD.showSuccess("Success!")
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+                
+            }
+        })
         
     }
     

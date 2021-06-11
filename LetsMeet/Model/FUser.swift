@@ -248,6 +248,20 @@ class FUser: Equatable {
         }
     }
     
+    //MARK: - Edit User Profile
+    
+    func updateUserEmail(newEmail: String, completion: @escaping (_ error: Error?) -> Void) {
+        // Email을 바꾸기 위해 우리의 인증절차에 접근
+        Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
+            
+            
+            completion(error)
+        })
+        
+    }
+    
+    
+    
     //MARK: - Resend Links
     
     class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void) {
