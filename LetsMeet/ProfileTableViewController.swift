@@ -355,8 +355,12 @@ class ProfileTableViewController: UITableViewController {
     private func changeEmail() {
         // Firebase의 'Authentication'에 새로운 메일 인증이 완료됨
         FUser.currentUser()?.updateUserEmail(newEmail: alertTextField.text!, completion: { (error) in
-            // 에러가 일어나지 않으면 "Success!" 출력
             if error == nil {
+                if let currentUser = FUser.currentUser() {
+                    currentUser.email = self.alertTextField.text!
+                    self.saveUserData(user: currentUser)
+                }
+                
                 ProgressHUD.showSuccess("Success!")
             } else {
                 ProgressHUD.showError(error!.localizedDescription)
