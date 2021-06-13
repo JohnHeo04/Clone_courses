@@ -36,7 +36,7 @@ class WelcomeViewController: UIViewController {
         // 만약 emailTextField가 비워져있지 않다면 "" 비워져있다면 API ProgessHUD중 Error "Please ~"를 출력
         if emailTextField.text != "" {
             // reset password
-            FUser.resetPasswordFor(email: emailTextField.text!) { (error) in
+            FUser.resetPassword(email: emailTextField.text!) { (error) in
                 
                 if error != nil {
                     

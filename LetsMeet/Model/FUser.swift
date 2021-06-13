@@ -254,17 +254,18 @@ class FUser: Equatable {
         // Email을 바꾸기 위해 우리의 인증절차에 접근
         Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
             
-            
+            FUser.resendVerificationEmail(email: newEmail) { (error) in
+                
+            }
             completion(error)
         })
-        
     }
-    
+     
     
     
     //MARK: - Resend Links
-    
-    class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void) {
+    //이메일 인증 메일을 다시 보내는 함수
+    class func resendVerificationEmail(email: String, completion: @escaping (_ error: Error?) -> Void) {
         
         Auth.auth().currentUser?.reload(completion: { (error) in
             
@@ -273,7 +274,15 @@ class FUser: Equatable {
                 completion(error)
             })
         })
+    }
+    
+    class func resetPassword(email: String, completion: @escaping (_ error: Error?) -> Void) {
         
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            
+            completion(error)
+            
+        }
     }
     
     
