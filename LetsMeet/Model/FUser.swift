@@ -285,6 +285,23 @@ class FUser: Equatable {
         }
     }
     
+    //MARK: - LogOut user
+    // 로그아웃 함수 구현
+    class func logOutCurrentUser(completion: @escaping(_ error: Error?) -> Void) {
+        
+        do {
+            try Auth.auth().signOut()
+            
+            userDefaults.removeObject(forKey: kCURRENTUSER)
+            userDefaults.synchronize()
+            completion(nil)
+            
+        } catch let error as NSError {
+            completion(error)
+        }
+        
+    }
+    
     
     
     //MARK: - Save user funcs

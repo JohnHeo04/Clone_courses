@@ -305,7 +305,9 @@ class ProfileTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (alert) in
             
-            print("Log Out")
+            self.logOutUser()
+            
+            
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -380,8 +382,34 @@ class ProfileTableViewController: UITableViewController {
             // 새로고침 하여 User Name을 불러옴
             loadUserData()
         }
+    }
+    
+    //MARK: - LogOut
+    
+    private func logOutUser() {
+        
+        FUser.logOutCurrentUser { (error) in
+            // 아래의 코드는 'Closure'
+            // 만약 로그아웃에 성공하면 'Login View'로 넘어감
+            // 실패하면 error를 보여줌
+            if error == nil {
+                
+                let loginView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "loginView")
+                
+                DispatchQueue.main.async {
+                    
+                    loginView.modalPresentationStyle = .fullScreen
+                    self.present(loginView, animated: true, completion: nil)
+                }
+                
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+            
+        }
         
     }
+    
 }
 
 extension ProfileTableViewController: GalleryControllerDelegate {
