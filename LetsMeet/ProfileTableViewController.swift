@@ -178,9 +178,9 @@ class ProfileTableViewController: UITableViewController {
         countryTextField.text = currentUser.country
         heightTextField.text = "\(currentUser.height)"
         lookingForTextField.text = currentUser.lookingFor
-        avatarImageView.image = UIImage(named: "avatar")
+        avatarImageView.image = UIImage(named: "avatar")?.circleMasked
         //TODO: set avatar picture.
-        avatarImageView.image = currentUser.avatar
+        avatarImageView.image = currentUser.avatar?.circleMasked
     }
     
     
@@ -426,8 +426,8 @@ extension ProfileTableViewController: GalleryControllerDelegate {
                         
                         self.editingMode = true
                         self.showSaveButton()
-                        
-                        self.avatarImageView.image = icon
+                        // 아래의 .circleMasked가 둥글게 만들어 줌
+                        self.avatarImageView.image = icon?.circleMasked
                         self.avatarImage = icon
                     } else {
                         ProgressHUD.showError("Couldn't select image!")
