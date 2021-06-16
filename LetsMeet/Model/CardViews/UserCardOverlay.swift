@@ -27,17 +27,29 @@ class UserCardOverlay: UIView {
         return nil
     }
     
-    
+    // 카드가 왼쪽으로 움직이는 함수
     private func createLeftOverlay() {
+        let leftTextView = TinderCardOverlayLabelView(withTitle: "NOPE", color: .sampleRed, rotation: CGFloat.pi/10)
         
+        addSubview(leftTextView)
+        leftTextView.anchor(top: topAnchor,
+                            right: rightAnchor,
+                            paddingTop: 30,
+                            paddingRight: 14)
     }
     
+    // 카드가 오른쪽으로 움직이는 함수
     private func createRightOverlay() {
+        let rightTextView = TinderCardOverlayLabelView(withTitle: "LIKE", color: .sampleGreen, rotation: -CGFloat.pi/10)
         
-        
+        addSubview(rightTextView)
+        rightTextView.anchor(top: topAnchor,
+                            left: leftAnchor,
+                            paddingTop: 26,
+                            paddingRight: 14)
     }
+}
     
-
 private class TinderCardOverlayLabelView: UIView {
 
   private let titleLabel: UILabel = {
