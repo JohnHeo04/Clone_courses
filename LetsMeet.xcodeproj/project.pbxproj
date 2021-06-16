@@ -14,6 +14,7 @@
 		564C70832678D1F1005DC619 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C70822678D1F1005DC619 /* UserCard.swift */; };
 		564C70882678DC69005DC619 /* UserCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C70872678DC69005DC619 /* UserCardModel.swift */; };
 		564C708A2678DD3A005DC619 /* UserCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C70892678DD3A005DC619 /* UserCardOverlay.swift */; };
+		564C708C2679D193005DC619 /* UserCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C708B2679D193005DC619 /* UserCardContentView.swift */; };
 		566F9451265CD72400258A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F9450265CD72400258A72 /* Constants.swift */; };
 		5673B6CC2664CA32005DFC14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B6CB2664CA32005DFC14 /* Extensions.swift */; };
 		568C481926426A5C00BF1297 /* AppDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481826426A5C00BF1297 /* AppDelegate .swift */; };
@@ -37,6 +38,7 @@
 		564C70822678D1F1005DC619 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		564C70872678DC69005DC619 /* UserCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardModel.swift; sourceTree = "<group>"; };
 		564C70892678DD3A005DC619 /* UserCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardOverlay.swift; sourceTree = "<group>"; };
+		564C708B2679D193005DC619 /* UserCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardContentView.swift; sourceTree = "<group>"; };
 		566F9450265CD72400258A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../New Group/Constants.swift"; sourceTree = "<group>"; };
 		5673B6CB2664CA32005DFC14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		568C481526426A5C00BF1297 /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 				564C70822678D1F1005DC619 /* UserCard.swift */,
 				564C70872678DC69005DC619 /* UserCardModel.swift */,
 				564C70892678DD3A005DC619 /* UserCardOverlay.swift */,
+				564C708B2679D193005DC619 /* UserCardContentView.swift */,
 			);
 			path = CardViews;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				564AE5A5265E678A00748E3D /* FirebaseListener.swift in Sources */,
 				5673B6CC2664CA32005DFC14 /* Extensions.swift in Sources */,
 				56F2320A265B908500DB913B /* FUser.swift in Sources */,
+				564C708C2679D193005DC619 /* UserCardContentView.swift in Sources */,
 				56F23206265B61F200DB913B /* WelcomeViewController.swift in Sources */,
 				564C70882678DC69005DC619 /* UserCardModel.swift in Sources */,
 				568C481926426A5C00BF1297 /* AppDelegate .swift in Sources */,
