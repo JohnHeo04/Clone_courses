@@ -47,6 +47,9 @@ extension UIColor {
         return UIColor(red: 255/255, green: 216/255, blue: 223/255, alpha: 1)
     }
     
+    static var sampleRed = UIColor(red: 252 / 255, green: 70 / 255, blue: 93 / 255, alpha: 1)
+    static var sampleGreen = UIColor(red: 49 / 255, green: 193 / 255, blue: 109 / 255, alpha: 1)
+    
 }
 
 
@@ -74,3 +77,14 @@ extension UIImage {
     }
     
 }
+
+extension NSAttributedString.Key {
+
+  static var overlayAttributes: [NSAttributedString.Key: Any] = [
+    // swiftlint:disable:next force_unwrapping
+    NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 42)!,
+    NSAttributedString.Key.kern: 5.0
+  ]
+}
+
+
