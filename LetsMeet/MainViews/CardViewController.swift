@@ -6,24 +6,71 @@
 //
 
 import UIKit
+import Shuffle_iOS
+import Firebase
+
 
 class CardViewController: UIViewController {
-
+    
+    //MARK: - Vars
+    private let cardStack = SwipeCardStack()
+    private var initialCardModels: [UserCardModel] = []
+    
+    
+    
+    //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+    }
 
-        // Do any additional setup after loading the view.
+    //MARK: - Layout Cards
+    private func layoutCardStackView() {
+        
+        cardStack.delegate = self
+        cardStack.dataSource = self
+        
+        view.addSubview(cardStack)
+        
+        cardStack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                         left: view.safeAreaLayoutGuide.leftAnchor,
+                         bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                         right: view.safeAreaLayoutGuide.rightAnchor )
+        
     }
     
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// 카드 뷰 인터렉션 조작기
+extension CardViewController: SwipeCardStackDelegate, SwipeCardStackDataSource {
+    
+    
+    func cardStack(_ cardStack: SwipeCardStack, cardForIndexAt index: Int) -> SwipeCard {
+        
+        let card = UserCard()
+        card.footerHeight = 80
+        card.swipeDirections = [.left, .right]
+        
+        for direction in card.swipeDirections {
+            card.setOverlay(UserCardOverlay(direction: direction), forDirection: direction)
+            
+        }
+        
+        card.configure(withModel: initialCardModels[index])
+        
+        return card
+        
     }
-    */
-
+    
+    func numberOfCards(in cardStack: SwipeCardStack) -> Int {
+        return  initialCardModels.count
+    }
+    
+    
+    
+    
 }
