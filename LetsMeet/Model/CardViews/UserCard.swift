@@ -12,6 +12,6 @@ class UserCard: SwipeCard {
     
     func configure(withModel model: UserCardModel) {
         content = UserCardContentView(withImage: model.image)
-        footer = UserCardFooterView(withTiltle: "\(model.name), \(model.age)", subtitle: model.occupation)
+        footer = UserCardFooterView(withTitle: "\(model.name), \(model.age)", subTitle: model.occupation )
     }
 }

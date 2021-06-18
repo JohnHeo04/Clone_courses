@@ -23,6 +23,7 @@
 		568C482226426A6200BF1297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 568C482126426A6200BF1297 /* Assets.xcassets */; };
 		568C482526426A6200BF1297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568C482326426A6200BF1297 /* LaunchScreen.storyboard */; };
 		568C482D26426AE100BF1297 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 568C482C26426AE100BF1297 /* GoogleService-Info.plist */; };
+		56AC0516267C57F500D0489B /* UserCareFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC0515267C57F500D0489B /* UserCareFooterView.swift */; };
 		56D01A6F266715E300AF5EBE /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D01A6E266715E300AF5EBE /* ProfileTableViewController.swift */; };
 		56F23206265B61F200DB913B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F23205265B61F200DB913B /* WelcomeViewController.swift */; };
 		56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F23207265B621F00DB913B /* RegisterViewController.swift */; };
@@ -49,6 +50,7 @@
 		568C482426426A6200BF1297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		568C482626426A6200BF1297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		568C482C26426AE100BF1297 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		56AC0515267C57F500D0489B /* UserCareFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCareFooterView.swift; sourceTree = "<group>"; };
 		56D01A6E266715E300AF5EBE /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		56F23205265B61F200DB913B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		56F23207265B621F00DB913B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				564C70872678DC69005DC619 /* UserCardModel.swift */,
 				564C70892678DD3A005DC619 /* UserCardOverlay.swift */,
 				564C708B2679D193005DC619 /* UserCardContentView.swift */,
+				56AC0515267C57F500D0489B /* UserCareFooterView.swift */,
 			);
 			path = CardViews;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				56D01A6F266715E300AF5EBE /* ProfileTableViewController.swift in Sources */,
 				56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */,
 				5609D3C6267713720015BC03 /* CardViewController.swift in Sources */,
+				56AC0516267C57F500D0489B /* UserCareFooterView.swift in Sources */,
 				564AE5A3265E398D00748E3D /* FCollectionReference.swift in Sources */,
 				564C708A2678DD3A005DC619 /* UserCardOverlay.swift in Sources */,
 				564C70832678D1F1005DC619 /* UserCard.swift in Sources */,
