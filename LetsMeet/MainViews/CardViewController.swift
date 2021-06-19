@@ -22,8 +22,17 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let user = FUser.currentUser()!
+        
+        let cardModel = UserCardModel(id: user.objectId,
+                                      name: user.username,
+                                      age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
+                                      occupation: "this is my profession",
+                                      image: user.avatar)
         
         
+        initialCardModels.append(cardModel)
+        layoutCardStackView()
         
     }
 

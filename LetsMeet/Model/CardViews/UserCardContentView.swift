@@ -51,13 +51,17 @@ class UserCardContentView: UIView {
         imageView.anchorToSuperview()
         applyShadow(radius: 8, opacity: 0.2, offset: CGSize(width: 0, height: 2))
         backgroundView.layer.insertSublayer(gradientLayer, above: imageView.layer)
+        
+        print("user card content")
     }
     
     // 뷰를 그리는 함수
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        
+        print("draw")
         let heightFactor: CGFloat = 0.35
-        gradientLayer.frame = CGRect(x: 0, y: (1 - heightFactor * bounds.height), width: bounds.width, height: heightFactor * bounds.height)
+        gradientLayer.frame = CGRect(x: 0, y: (1 - heightFactor) * bounds.height, width: bounds.width, height: heightFactor * bounds.height)
         
     }
     

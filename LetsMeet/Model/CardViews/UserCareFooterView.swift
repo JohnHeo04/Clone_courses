@@ -31,20 +31,27 @@ class UserCardFooterView: UIView {
     }
     
     private func initialize(title: String?, subtitle: String?) {
-        let attributedText = NSMutableAttributedString(string: (title ?? "") + "\n", attributes: NSAttributedString.Key.titleAttributes)
         
+        let attributedText = NSMutableAttributedString(string: (title ?? "") + "\n", attributes: NSAttributedString.Key.titleAttributes)
+        // Card View의 footer를 만들기 위한 출력물
+//        print("init footer", title, subtitle)
         // 조건문을 만들어서 SubTitle이 없다면 보여주지 않음
         if let subtitle = subtitle, subtitle != "" {
+            
             attributedText.append(NSMutableAttributedString(string: subtitle, attributes: NSAttributedString.Key.subtitleAttributes))
             let paragraphStyle = NSMutableParagraphStyle()
             // 아래는 Title과 Subtitle간의 간격
             paragraphStyle.lineSpacing = 4
             paragraphStyle.lineBreakMode = .byTruncatingTail
             attributedText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedText.length))
-             label.attributedText = attributedText
-            addSubview(label)
-            
+            label.numberOfLines = 2
         }
+        // 기존에 if문 안에 있었지만 작동하지 않아 밖으로 빼줌
+        // subtitle이 nil 이라면 아래 실행해서 화면에 subtitle 보여줌
+        label.attributedText = attributedText
+       addSubview(label)
+
+        
     }
     
     override func layoutSubviews() {
