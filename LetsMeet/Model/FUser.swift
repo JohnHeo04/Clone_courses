@@ -335,3 +335,40 @@ class FUser: Equatable {
     }
 
 }
+
+// 카드뷰를 추가하는 함수
+func createUsers() {
+    
+    let names = ["Alison Stamp", "Inayah Duggen", "Alfie-Lee Thornton", "Rachelle Neale", "Anya Gates", "Juanita Bate"]
+    
+    var imageIndex = 1
+    var userIndex = 1
+    var isMale = true
+    
+    for i in 0..<5 {
+        
+        let id = UUID().uuidString
+        
+        let fileDirectory = "Avatars/_" + "\(id)" + ".jpg"
+        
+        FileStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, directory: fileDirectory) { (avatarLink) in
+            
+            let user = FUser(_objectId: id, _email: "user\(userIndex)@mail.com", _username: names[i], _city: "No City", _dateOfBirth: Date(), _isMale: isMale, _avatarLink: avatarLink ?? "")
+            
+            isMale.toggle()
+            userIndex += 1
+            // Firebase에 저장하는 함수
+            user.saveUserToFireStore()
+            
+        }
+        
+        imageIndex += 1
+        
+        if imageIndex == 16 {
+            imageIndex = 1
+            
+        }
+        
+    }
+    
+}

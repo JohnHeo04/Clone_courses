@@ -22,17 +22,19 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = FUser.currentUser()!
+        createUsers()
         
-        let cardModel = UserCardModel(id: user.objectId,
-                                      name: user.username,
-                                      age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
-                                      occupation: "this is my profession",
-                                      image: user.avatar)
-        
-        
-        initialCardModels.append(cardModel)
-        layoutCardStackView()
+//        let user = FUser.currentUser()!
+//
+//        let cardModel = UserCardModel(id: user.objectId,
+//                                      name: user.username,
+//                                      age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
+//                                      occupation: "this is my profession",
+//                                      image: user.avatar)
+//
+//
+//        initialCardModels.append(cardModel)
+//        layoutCardStackView()
         
     }
 
@@ -57,6 +59,7 @@ class CardViewController: UIViewController {
 // 카드 뷰 인터렉션 조작기
 extension CardViewController: SwipeCardStackDelegate, SwipeCardStackDataSource {
     
+    //MARK: - DataSource
     
     func cardStack(_ cardStack: SwipeCardStack, cardForIndexAt index: Int) -> SwipeCard {
         
@@ -79,7 +82,22 @@ extension CardViewController: SwipeCardStackDelegate, SwipeCardStackDataSource {
         return  initialCardModels.count
     }
     
+    //MARK: - Delegates
+    func didSwipeAllCards(_ cardStack: SwipeCardStack) {
+        
+        print("finished with cards")
+    }
     
+    func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
+        
+        print("Swipe to", direction)
+    }
+    
+    func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int) {
+        
+        print("selected card at", index)
+        
+    }
     
     
 }
