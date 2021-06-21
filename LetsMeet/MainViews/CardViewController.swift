@@ -22,23 +22,14 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createUsers()
+//        createUsers()
         
-//        let user = FUser.currentUser()!
-//
-//        let cardModel = UserCardModel(id: user.objectId,
-//                                      name: user.username,
-//                                      age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
-//                                      occupation: "this is my profession",
-//                                      image: user.avatar)
-//
-//
-//        initialCardModels.append(cardModel)
-//        layoutCardStackView()
+        downloadInitialUsers()
         
     }
 
     //MARK: - Layout Cards
+    // 아래 함수를 콜 하게되면 스택을 처음부터 다시 봄
     private func layoutCardStackView() {
         
         cardStack.delegate = self
@@ -52,6 +43,15 @@ class CardViewController: UIViewController {
                          right: view.safeAreaLayoutGuide.rightAnchor )
         
     }
+    
+    //MARK: - DownloadUsers
+    
+    private func downloadInitialUsers() {
+        
+        
+    }
+    
+    
     
     
 }

@@ -51,7 +51,9 @@ class FirebaseListener {
         }
     }
     
-    
-    
+    func downloadUserFromFirebase(isInitialLoad: Bool, limit: Int, lastDocumentSnapshot: DocumentSnapshot?, completion: @escaping (_ users: [FUser], _ snapshot: DocumentSnapshot?) -> Void ) {
+     
+     
+    }
     
 }
