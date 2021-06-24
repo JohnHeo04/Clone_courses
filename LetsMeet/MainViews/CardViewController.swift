@@ -8,6 +8,7 @@
 import UIKit
 import Shuffle_iOS
 import Firebase
+import ProgressHUD
 
 
 class CardViewController: UIViewController {
@@ -15,8 +16,15 @@ class CardViewController: UIViewController {
     //MARK: - Vars
     private let cardStack = SwipeCardStack()
     private var initialCardModels: [UserCardModel] = []
+    private var secondCardModel: [UserCardModel] = []
+    private var userObjects: [FUser] = []
     
+    var lastDocumentSnapshot: DocumentSnapshot?
+    var isInitialLoad = true
+    var showReserve = false
     
+    var numberOfCardsAdded = 0
+    var initialLoadNumber = 3
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -48,7 +56,43 @@ class CardViewController: UIViewController {
     
     private func downloadInitialUsers() {
         
+        ProgressHUD.show()
         
+        FirebaseListener.shared.downloadUserFromFirebase(isInitialLoad: isInitialLoad, limit: initialLoadNumber, lastDocumentSnapshot: lastDocumentSnapshot) { (allUsers, snapshot) in
+            if allUsers.count == 0 {
+                ProgressHUD.dismiss()
+            }
+            
+            self.lastDocumentSnapshot = snapshot
+            self.isInitialLoad = false
+            self.initialCardModels = []
+            
+            self.userObjects = allUsers
+            
+            for user in allUsers {
+                user.getUserAvatarFromFirestore { (didSet) in
+                    
+                    let cardModel = UserCardModel(id: user.objectId, name: user.username, age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())), occupation: user.profession, image: user.avatar)
+                    
+                    self.initialCardModels.append(cardModel)
+                    self.numberOfCardsAdded += 1
+                    
+                    if self.numberOfCardsAdded == allUsers.count {
+                        print("relaod")
+                        
+                        DispatchQueue.main.async {
+                            ProgressHUD.dismiss()
+                            self.layoutCardStackView()
+
+                        }
+                    }
+                }
+            }
+            
+            print("initial \(allUsers.count) received")
+            // get 2nd batch
+            
+        }
     }
     
     
