@@ -72,7 +72,11 @@ class CardViewController: UIViewController {
             for user in allUsers {
                 user.getUserAvatarFromFirestore { (didSet) in
                     
-                    let cardModel = UserCardModel(id: user.objectId, name: user.username, age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())), occupation: user.profession, image: user.avatar)
+                    let cardModel = UserCardModel(id: user.objectId,
+                                                  name: user.username,
+                                                  age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
+                                                  occupation: user.profession,
+                                                  image: user.avatar)
                     
                     self.initialCardModels.append(cardModel)
                     self.numberOfCardsAdded += 1
@@ -91,11 +95,39 @@ class CardViewController: UIViewController {
             
             print("initial \(allUsers.count) received")
             // get 2nd batch
+            self.downloadMoreUserInBackground()
             
         }
     }
     
-    
+    private func downloadMoreUserInBackground() {
+        
+        FirebaseListener.shared.downloadUserFromFirebase(isInitialLoad: isInitialLoad, limit: 1000, lastDocumentSnapshot: lastDocumentSnapshot) { (allUsers, snapshot) in
+            
+            self.lastDocumentSnapshot = snapshot
+            self.secondCardModel = []
+            
+            self.userObjects += allUsers
+            
+            for user in allUsers {
+                user.getUserAvatarFromFirestore { (didSet) in
+                    
+                    let cardModel = UserCardModel(id: user.objectId,
+                                                  name: user.username,
+                                                  age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
+                                                  occupation: user.profession,
+                                                  image: user.avatar)
+                    
+                    self.secondCardModel.append(cardModel )
+
+                    
+                }
+            }
+            
+            
+        }
+        
+    }
     
     
 }
@@ -113,23 +145,33 @@ extension CardViewController: SwipeCardStackDelegate, SwipeCardStackDataSource {
         
         for direction in card.swipeDirections {
             card.setOverlay(UserCardOverlay(direction: direction), forDirection: direction)
-            
+             
         }
         
-        card.configure(withModel: initialCardModels[index])
+        card.configure(withModel: showReserve ? secondCardModel[index] : initialCardModels[index])
         
         return card
         
     }
     
     func numberOfCards(in cardStack: SwipeCardStack) -> Int {
-        return  initialCardModels.count
+        return showReserve ? secondCardModel.count : initialCardModels.count
     }
     
     //MARK: - Delegates
     func didSwipeAllCards(_ cardStack: SwipeCardStack) {
         
-        print("finished with cards")
+        print("finished with cards, show reserve is ", showReserve)
+        
+        initialCardModels = []
+        
+        if showReserve {
+            secondCardModel = []
+        }
+        
+        
+        showReserve = true
+        layoutCardStackView()
     }
     
     func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
