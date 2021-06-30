@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBavkground" translatesAutoresizingMaskIntoConstraints="NO" id="eeU-Fd-egc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFW-jd-td6">
-                                <rect key="frame" x="18" y="64" width="378" height="48"/>
+                                <rect key="frame" x="18" y="64" width="339" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="h9Q-rv-GPi"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXB-ah-1SU">
-                                <rect key="frame" x="16" y="132" width="382" height="28"/>
+                                <rect key="frame" x="16" y="132" width="343" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="uNN-Tg-2Ph"/>
                                 </constraints>
@@ -39,13 +39,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcG-l2-OmB">
-                                <rect key="frame" x="16" y="230" width="382" height="27"/>
+                                <rect key="frame" x="16" y="230" width="343" height="27"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0W-CC-EqE">
-                                <rect key="frame" x="16" y="167" width="382" height="34"/>
+                                <rect key="frame" x="16" y="167" width="343" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="Cv2-Gb-cyt"/>
                                     <constraint firstAttribute="height" constant="34" id="Hmq-mw-nZe"/>
@@ -54,7 +54,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEg-ah-Fmv">
-                                <rect key="frame" x="16" y="264" width="382" height="34"/>
+                                <rect key="frame" x="16" y="264" width="343" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="7gQ-xx-20p"/>
                                 </constraints>
@@ -62,21 +62,21 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k85-Uv-nWj">
-                                <rect key="frame" x="20" y="208" width="374" height="2"/>
+                                <rect key="frame" x="20" y="208" width="335" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="ipI-nn-0Dj"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uci-sh-Nk2">
-                                <rect key="frame" x="20" y="305" width="374" height="2"/>
+                                <rect key="frame" x="20" y="305" width="335" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="rwI-3f-a3i"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zz-qI-wF3">
-                                <rect key="frame" x="49" y="420.5" width="316" height="55"/>
+                                <rect key="frame" x="29.5" y="420.5" width="316" height="55"/>
                                 <state key="normal" image="signin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-df-c0k">
-                                <rect key="frame" x="20" y="327" width="200" height="30"/>
+                                <rect key="frame" x="20" y="327" width="161" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="2L3-2j-3Ek"/>
                                     <constraint firstAttribute="width" constant="160" id="Sib-gJ-Q9Z"/>
@@ -463,10 +463,10 @@
             </objects>
             <point key="canvasLocation" x="3517" y="-218"/>
         </scene>
-        <!--Table View Controller-->
+        <!--User Profile Table View Controller-->
         <scene sceneID="pNW-Kr-XLX">
             <objects>
-                <tableViewController id="bY4-dO-ROJ" sceneMemberID="viewController">
+                <tableViewController id="bY4-dO-ROJ" customClass="UserProfileTableViewController" customModule="LetsMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FuF-4S-tfX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -680,8 +680,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mf1-X3-a2P">
                                                     <rect key="frame" x="8" y="39" width="390" height="91"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTS-P3-Ljs">
-                                                            <rect key="frame" x="8" y="8" width="78" height="28"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Profession" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTS-P3-Ljs">
+                                                            <rect key="frame" x="8" y="8" width="374" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="0u2-Kq-wzC"/>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="cK8-UI-Sed"/>
@@ -850,6 +850,23 @@
                             <outlet property="delegate" destination="bY4-dO-ROJ" id="9OC-8j-jx2"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="aboutTextView" destination="4PO-0A-Se9" id="zcn-Mu-XU2"/>
+                        <outlet property="activityIndicator" destination="KBL-WW-urt" id="nqg-5f-b1O"/>
+                        <outlet property="collectionView" destination="Zbo-65-c0h" id="Lpt-BX-Cyb"/>
+                        <outlet property="dislikeButtonOutlet" destination="sIG-AJ-qg3" id="ob8-HE-2Ui"/>
+                        <outlet property="genderLabel" destination="6fy-e1-KZx" id="XES-Xu-v4s"/>
+                        <outlet property="heightLabel" destination="HKq-g1-a8g" id="ZTK-Hu-0uM"/>
+                        <outlet property="jobLabel" destination="LGu-4E-hvN" id="DKV-6N-dgM"/>
+                        <outlet property="likeButtonOutlet" destination="euK-98-39P" id="H7b-ny-O6r"/>
+                        <outlet property="lookingForLabel" destination="ZUf-hg-3zI" id="TVu-8T-cxu"/>
+                        <outlet property="pageControl" destination="bic-7T-WMd" id="BRd-FL-YWH"/>
+                        <outlet property="professionLabel" destination="BTS-P3-Ljs" id="gxS-iB-TEq"/>
+                        <outlet property="sectionFourView" destination="Y3I-X6-fXd" id="fVZ-Wt-KOz"/>
+                        <outlet property="sectionOneView" destination="gpH-Kq-zXK" id="Zdb-Fg-Ls2"/>
+                        <outlet property="sectionThreeView" destination="Mf1-X3-a2P" id="UKr-MR-0J6"/>
+                        <outlet property="sectionTwoView" destination="ozR-Xe-bfw" id="ct5-iA-0hj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qq-rN-tf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

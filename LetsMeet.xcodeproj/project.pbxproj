@@ -16,6 +16,7 @@
 		564C708A2678DD3A005DC619 /* UserCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C70892678DD3A005DC619 /* UserCardOverlay.swift */; };
 		564C708C2679D193005DC619 /* UserCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C708B2679D193005DC619 /* UserCardContentView.swift */; };
 		566F9451265CD72400258A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F9450265CD72400258A72 /* Constants.swift */; };
+		566FA3DF268BF6C200E95635 /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566FA3DE268BF6C200E95635 /* UserProfileTableViewController.swift */; };
 		5673B6CC2664CA32005DFC14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B6CB2664CA32005DFC14 /* Extensions.swift */; };
 		568C481926426A5C00BF1297 /* AppDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481826426A5C00BF1297 /* AppDelegate .swift */; };
 		568C481B26426A5C00BF1297 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C481A26426A5C00BF1297 /* SceneDelegate.swift */; };
@@ -41,6 +42,7 @@
 		564C70892678DD3A005DC619 /* UserCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardOverlay.swift; sourceTree = "<group>"; };
 		564C708B2679D193005DC619 /* UserCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardContentView.swift; sourceTree = "<group>"; };
 		566F9450265CD72400258A72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../New Group/Constants.swift"; sourceTree = "<group>"; };
+		566FA3DE268BF6C200E95635 /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
 		5673B6CB2664CA32005DFC14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		568C481526426A5C00BF1297 /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C481826426A5C00BF1297 /* AppDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate .swift"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				56D01A6E266715E300AF5EBE /* ProfileTableViewController.swift */,
 				5609D3C5267713720015BC03 /* CardViewController.swift */,
+				566FA3DE268BF6C200E95635 /* UserProfileTableViewController.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				56F23208265B621F00DB913B /* RegisterViewController.swift in Sources */,
 				5609D3C6267713720015BC03 /* CardViewController.swift in Sources */,
 				56AC0516267C57F500D0489B /* UserCareFooterView.swift in Sources */,
+				566FA3DF268BF6C200E95635 /* UserProfileTableViewController.swift in Sources */,
 				564AE5A3265E398D00748E3D /* FCollectionReference.swift in Sources */,
 				564C708A2678DD3A005DC619 /* UserCardOverlay.swift in Sources */,
 				564C70832678D1F1005DC619 /* UserCard.swift in Sources */,
