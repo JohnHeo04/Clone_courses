@@ -35,13 +35,32 @@ class UserProfileTableViewController: UITableViewController {
     
     
     //MARK: - View Lifecycle
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBackgrounds()
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    //MARK: - Setup UI
+    private func setupBackgrounds() {
+        
+        sectionOneView.clipsToBounds = true
+        sectionOneView.layer.contents = 30
+        sectionOneView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        sectionTwoView.layer.cornerRadius = 10
+        sectionThreeView.layer.cornerRadius = 10
+        sectionFourView.layer.cornerRadius = 10
+        
+        
         
     }
     
