@@ -51,9 +51,9 @@ class UserProfileTableViewController: UITableViewController {
     
     //MARK: - Setup UI
     private func setupBackgrounds() {
-        
+// cornerRadius로 사용자 정보를 둥글게 처리함
         sectionOneView.clipsToBounds = true
-        sectionOneView.layer.contents = 30
+        sectionOneView.layer.cornerRadius = 30
         sectionOneView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         sectionTwoView.layer.cornerRadius = 10
