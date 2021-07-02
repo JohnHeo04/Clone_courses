@@ -40,13 +40,32 @@ class UserProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         
         setupBackgrounds()
+        hideActivityIndicator()
         
     }
     
+    //MARK: - IBActions
     
     
+    //MARK: - TableViewDelegate
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Title 반환을 원하지 않기 때문에 "" return
+        return ""
+    }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return section == 0 ? 0 : 10
+    }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        
+        return view
+    }
     
     
     //MARK: - Setup UI
@@ -61,6 +80,20 @@ class UserProfileTableViewController: UITableViewController {
         sectionFourView.layer.cornerRadius = 10
         
         
+        
+    }
+    
+    //MARK: - Activity indicator
+    
+    private func showActivityIndicator() {
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.isHidden = false
+        
+    }
+    
+    private func hideActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
         
     }
     

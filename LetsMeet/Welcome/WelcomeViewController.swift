@@ -30,6 +30,17 @@ class WelcomeViewController: UIViewController {
     
     
     //MARK: - IBACtions
+    // Like 버튼과 DisLike 버튼 액션 기능 구현
+    @IBAction func dislikeButtonPressed(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func likeButtonPressed(_ sender: Any) {
+        
+    }
+    
+    
     
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
         // 'Forget Password?'를 눌렀을 때
