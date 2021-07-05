@@ -686,7 +686,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mf1-X3-a2P">
-                                                    <rect key="frame" x="8" y="39" width="390" height="91"/>
+                                                    <rect key="frame" x="16" y="39" width="382" height="91"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTS-P3-Ljs">
                                                             <rect key="frame" x="8" y="8" width="78" height="28"/>
@@ -699,7 +699,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-4E-hvN">
-                                                            <rect key="frame" x="8" y="44" width="374" height="28"/>
+                                                            <rect key="frame" x="8" y="44" width="366" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="Xdv-VL-E21"/>
                                                             </constraints>
@@ -725,7 +725,7 @@
                                                 <constraint firstItem="K81-Pd-kgS" firstAttribute="leading" secondItem="tY0-rK-Tay" secondAttribute="leadingMargin" id="M1H-Lz-zFD"/>
                                                 <constraint firstAttribute="bottom" secondItem="Mf1-X3-a2P" secondAttribute="bottom" constant="10" id="Vee-zJ-lnb"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mf1-X3-a2P" secondAttribute="trailing" constant="16" id="clC-pk-hdu"/>
-                                                <constraint firstItem="Mf1-X3-a2P" firstAttribute="leading" secondItem="tY0-rK-Tay" secondAttribute="leading" constant="8" id="fqi-eB-wX4"/>
+                                                <constraint firstItem="Mf1-X3-a2P" firstAttribute="leading" secondItem="tY0-rK-Tay" secondAttribute="leading" constant="16" id="fqi-eB-wX4"/>
                                                 <constraint firstItem="Mf1-X3-a2P" firstAttribute="top" secondItem="K81-Pd-kgS" secondAttribute="bottom" id="kPY-Ld-FcG"/>
                                             </constraints>
                                         </tableViewCellContentView>

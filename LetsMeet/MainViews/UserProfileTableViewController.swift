@@ -17,6 +17,7 @@ class UserProfileTableViewController: UITableViewController {
     @IBOutlet weak var sectionFourView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var dislikeButtonOutlet: UIButton!
     @IBOutlet weak var likeButtonOutlet: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -26,19 +27,38 @@ class UserProfileTableViewController: UITableViewController {
     
     @IBOutlet weak var professionLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
-    
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var lookingForLabel: UILabel!
+    
+    //MARK:- Vars
+    var userObject: FUser?
+    
+    
+    var allImages: [UIImage] = []
     
     
     
     
     //MARK: - View Lifecycle
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        pageControl.hidesForSinglePage = true
+        
+        if userObject != nil {
+            showUserDetails()
+            loadImages()
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 카드뷰를 선택하면 아래의 프린트 문구가 콘솔창에 발생
+//        print("showing user ", userObject?.username)
         setupBackgrounds()
         hideActivityIndicator()
         
@@ -78,10 +98,21 @@ class UserProfileTableViewController: UITableViewController {
         sectionTwoView.layer.cornerRadius = 10
         sectionThreeView.layer.cornerRadius = 10
         sectionFourView.layer.cornerRadius = 10
+    }
+    
+    
+    //MARK: - Show user profile
+    private func showUserDetails() {
         
-        
+        aboutTextView.text = userObject!.about
+        professionLabel.text = userObject!.profession
+        jobLabel.text = userObject!.jobTitle
+        genderLabel.text = userObject!.isMale ? "Male" : "Female"
+        heightLabel.text = String(format: "%.2f", userObject!.height)
+        lookingForLabel.text = userObject!.lookingFor
         
     }
+    
     
     //MARK: - Activity indicator
     
@@ -94,6 +125,42 @@ class UserProfileTableViewController: UITableViewController {
     private func hideActivityIndicator() {
         self.activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
+        
+    }
+    
+    //MARK: - Load Images
+    private func loadImages() {
+        
+        let placeholder = userObject!.isMale ? "mPlaceholder" : "fPlaceholder"
+        let avatar = userObject!.avatar ?? UIImage(named:  placeholder)
+        
+        allImages = [avatar!]
+        //show page control
+        
+        self.collectionView.reloadData()
+        
+        if userObject!.imageLinks != nil && userObject!.imageLinks!.count > 0 {
+            
+            showActivityIndicator()
+            
+            FileStorage.downloadImages(imageUrls: userObject!.imageLinks!) { (returnedImages) in
+                
+                self.allImages += returnedImages as! [UIImage]
+                //show page control
+                
+                DispatchQueue.main.async {
+                    self.hideActivityIndicator()
+                    self.collectionView.reloadData()
+                    
+                }
+                
+                self.collectionView.reloadData()
+                
+            }
+        } else {
+            hideActivityIndicator()
+            
+        }
         
     }
     

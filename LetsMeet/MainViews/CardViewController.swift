@@ -135,12 +135,27 @@ class CardViewController: UIViewController {
         
         let profileView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ProfileTableView") as! UserProfileTableViewController
         
+        profileView.userObject = getUserWithId(userId: userId)
         self.present(profileView, animated: true, completion: nil)
         
         
     }
     
     
+    //MARK: - Helpers
+    
+    private func getUserWithId(userId: String) -> FUser? {
+        
+        for user in userObjects {
+            if user.objectId == userId {
+                return user
+                
+                
+            }
+        }
+        
+        return nil
+    }
     
     
 }
