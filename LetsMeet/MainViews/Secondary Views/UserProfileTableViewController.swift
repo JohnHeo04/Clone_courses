@@ -135,6 +135,8 @@ class UserProfileTableViewController: UITableViewController {
         let avatar = userObject!.avatar ?? UIImage(named:  placeholder)
         
         allImages = [avatar!]
+        self.setPageControlPages()
+        
         //show page control
         
         self.collectionView.reloadData()
@@ -146,6 +148,8 @@ class UserProfileTableViewController: UITableViewController {
             FileStorage.downloadImages(imageUrls: userObject!.imageLinks!) { (returnedImages) in
                 
                 self.allImages += returnedImages as! [UIImage]
+                self.setPageControlPages()
+
                 //show page control
                 
                 DispatchQueue.main.async {
@@ -159,10 +163,22 @@ class UserProfileTableViewController: UITableViewController {
             }
         } else {
             hideActivityIndicator()
-            
         }
+    }
+    
+    //MARK: - PageControl
+    private func setPageControlPages() {
+        
+        self.pageControl.numberOfPages = self.allImages.count
         
     }
+    
+    private func setSelectedPageTo(page: Int) {
+        self.pageControl.currentPage = page
+        
+    }
+    
+    
     
 
 }
