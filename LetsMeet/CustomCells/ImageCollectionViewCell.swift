@@ -18,9 +18,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
     let gradientLayer = CAGradientLayer()
     var indexPath: IndexPath!
     
-    override class func awakeFromNib() {
-//        imageView.layer.cornerRadius = 5
-        
+    override func awakeFromNib() {
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds = true
         
     }
     

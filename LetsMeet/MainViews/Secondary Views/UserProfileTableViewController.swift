@@ -178,7 +178,35 @@ class UserProfileTableViewController: UITableViewController {
         
     }
     
-    
-    
+}
 
+extension UserProfileTableViewController : UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImageCollectionViewCell
+        
+        let countryCity = userObject!.country + ", " + userObject!.city
+        let nameAge = userObject!.username + ", " + "\(abs(userObject!.dateOfBirth.interval(ofComponent: .year, fromDate: Date())))"
+        
+        cell.setupCell(image: allImages[indexPath.row], country: countryCity, nameAge: nameAge, indexPath: indexPath)
+        
+        return cell
+        
+    }
+    
+    
+    
+    
+}
+
+
+extension UserProfileTableViewController : UICollectionViewDelegate {
+    
+    
+    
 }
