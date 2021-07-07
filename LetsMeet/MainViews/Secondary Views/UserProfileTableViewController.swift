@@ -36,7 +36,7 @@ class UserProfileTableViewController: UITableViewController {
     
     
     var allImages: [UIImage] = []
-    
+    private let sectionInsects = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 5.0)
     
     
     
@@ -207,6 +207,39 @@ extension UserProfileTableViewController : UICollectionViewDataSource {
 
 extension UserProfileTableViewController : UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("image tap")
+        
+    }
     
+    
+}
+
+extension UserProfileTableViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.width, height: 453.0)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        
+        setSelectedPageTo(page: indexPath.row)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return sectionInsects
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return sectionInsects.left
+        
+    }
     
 }
