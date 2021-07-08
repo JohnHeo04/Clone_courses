@@ -148,11 +148,11 @@ class UserProfileTableViewController: UITableViewController {
             FileStorage.downloadImages(imageUrls: userObject!.imageLinks!) { (returnedImages) in
                 
                 self.allImages += returnedImages as! [UIImage]
-                self.setPageControlPages()
 
                 //show page control
                 
                 DispatchQueue.main.async {
+                    self.setPageControlPages()
                     self.hideActivityIndicator()
                     self.collectionView.reloadData()
                     
@@ -225,7 +225,6 @@ extension UserProfileTableViewController : UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
         
         setSelectedPageTo(page: indexPath.row)
         
