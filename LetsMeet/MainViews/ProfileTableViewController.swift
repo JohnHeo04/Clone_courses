@@ -47,7 +47,7 @@ class ProfileTableViewController: UITableViewController {
         
         // 31.프로필화면의 Round기능이 버그인가 했지만 아래의 메소드를 활성화 시켜야 Round가 적용되는 것을 찾음
         overrideUserInterfaceStyle = .light
-        
+        // 현재 여기 생명주기
         setupBackgrounds()
         
         // 만약 FUser의 '현재 사용자'가 nil로 비어있다면 아래 loadUserData() 함수 활성
